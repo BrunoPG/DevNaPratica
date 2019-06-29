@@ -1,0 +1,11 @@
+<!-- GENERATED ENTITIES: 2019-06-29 04:27:49:141 -->
+<class>br.com.senior.furb.basico.ClienteEntity</class>
+<class>br.com.senior.furb.basico.ItemEntity</class>
+<class>br.com.senior.furb.basico.PedidoEntity</class>
+<class>br.com.senior.furb.basico.Pedido_ItensEntity</class>
+<class>br.com.senior.furb.basico.TipoEntity</class>
+<class>br.com.senior.furb.basico.EventoEntity</class>
+<class>br.com.senior.furb.basico.SalaEntity</class>
+<class>br.com.senior.furb.basico.Sala_SetoresEntity</class>
+<class>br.com.senior.furb.basico.Sala_EventoEntity</class>
+<class>br.com.senior.furb.basico.SetorEntity</class>
