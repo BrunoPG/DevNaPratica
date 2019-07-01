@@ -11,30 +11,16 @@ import br.com.senior.messaging.utils.DtoJsonConverter;
 import br.com.senior.sdl.user.UserIdentifier;
 
 import java.util.concurrent.CompletableFuture;
-import br.com.senior.furb.basico.HelloWorldInput;
-import br.com.senior.furb.basico.HelloWorldOutput;
-import br.com.senior.furb.basico.RetornaEstoqueInput;
-import br.com.senior.furb.basico.RetornaEstoqueOutput;
-import br.com.senior.furb.basico.ObterUrlUploadFotoInput;
-import br.com.senior.furb.basico.ObterUrlUploadFotoOutput;
-import br.com.senior.furb.basico.GravarFotoInput;
-import br.com.senior.furb.basico.GravarFotoOutput;
-import br.com.senior.furb.basico.ObterUrlDownloadFotoInput;
-import br.com.senior.furb.basico.ObterUrlDownloadFotoOutput;
+import br.com.senior.furb.basico.GetQtdTipoInput;
+import br.com.senior.furb.basico.GetQtdTipoOutput;
+import br.com.senior.furb.basico.GetDateEventoInput;
+import br.com.senior.furb.basico.GetDateEventoOutput;
+import br.com.senior.furb.basico.GetSalasInput;
+import br.com.senior.furb.basico.GetSalasOutput;
+import br.com.senior.furb.basico.GetSetoresInput;
+import br.com.senior.furb.basico.GetSetoresOutput;
 import br.com.senior.furb.basico.GetMetadataInput;
 import br.com.senior.furb.basico.GetMetadataOutput;
-import br.com.senior.furb.basico.ImportClienteInput;
-import br.com.senior.furb.basico.ImportClienteOutput;
-import br.com.senior.furb.basico.ExportClienteInput;
-import br.com.senior.furb.basico.ExportClienteOutput;
-import br.com.senior.furb.basico.ImportItemInput;
-import br.com.senior.furb.basico.ImportItemOutput;
-import br.com.senior.furb.basico.ExportItemInput;
-import br.com.senior.furb.basico.ExportItemOutput;
-import br.com.senior.furb.basico.ImportPedidoInput;
-import br.com.senior.furb.basico.ImportPedidoOutput;
-import br.com.senior.furb.basico.ExportPedidoInput;
-import br.com.senior.furb.basico.ExportPedidoOutput;
 import br.com.senior.furb.basico.ImportTipoInput;
 import br.com.senior.furb.basico.ImportTipoOutput;
 import br.com.senior.furb.basico.ExportTipoInput;
@@ -52,15 +38,6 @@ import br.com.senior.furb.basico.ImportSetorOutput;
 import br.com.senior.furb.basico.ExportSetorInput;
 import br.com.senior.furb.basico.ExportSetorOutput;
 import br.com.senior.furb.basico.GetDependenciesOutput;
-import br.com.senior.furb.basico.Cliente;
-import br.com.senior.furb.basico.CreateBulkClienteInput;
-import br.com.senior.furb.basico.CreateBulkClienteOutput;
-import br.com.senior.furb.basico.Item;
-import br.com.senior.furb.basico.CreateBulkItemInput;
-import br.com.senior.furb.basico.CreateBulkItemOutput;
-import br.com.senior.furb.basico.Pedido;
-import br.com.senior.furb.basico.CreateBulkPedidoInput;
-import br.com.senior.furb.basico.CreateBulkPedidoOutput;
 import br.com.senior.furb.basico.Tipo;
 import br.com.senior.furb.basico.CreateBulkTipoInput;
 import br.com.senior.furb.basico.CreateBulkTipoOutput;
@@ -75,12 +52,6 @@ import br.com.senior.furb.basico.CreateBulkSetorInput;
 import br.com.senior.furb.basico.CreateBulkSetorOutput;
 import br.com.senior.furb.basico.ServiceStartedPayload;
 import br.com.senior.furb.basico.NotifyUserEventPayload;
-import br.com.senior.furb.basico.ImportClienteEventPayload;
-import br.com.senior.furb.basico.ExportClienteEventPayload;
-import br.com.senior.furb.basico.ImportItemEventPayload;
-import br.com.senior.furb.basico.ExportItemEventPayload;
-import br.com.senior.furb.basico.ImportPedidoEventPayload;
-import br.com.senior.furb.basico.ExportPedidoEventPayload;
 import br.com.senior.furb.basico.ImportTipoEventPayload;
 import br.com.senior.furb.basico.ExportTipoEventPayload;
 import br.com.senior.furb.basico.ImportEventoEventPayload;
@@ -123,169 +94,136 @@ public class BasicoStubImpl  implements BasicoStub {
 	}
 
 	/**
-	 * Chamada síncrona para o método helloWorld
+	 * Chamada síncrona para o método getQtdTipo
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 
 	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public HelloWorldOutput helloWorld(HelloWorldInput input, long timeout) {
-		br.com.senior.furb.basico.impl.HelloWorldImpl impl = new br.com.senior.furb.basico.impl.HelloWorldImpl(messengerSupplier, userId, messageSupplier);
-		return impl.helloWorld(input, timeout);
+	public GetQtdTipoOutput getQtdTipo(GetQtdTipoInput input, long timeout) {
+		br.com.senior.furb.basico.impl.GetQtdTipoImpl impl = new br.com.senior.furb.basico.impl.GetQtdTipoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getQtdTipo(input, timeout);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método helloWorld
+	 * Chamada assíncrona para o método getQtdTipo
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 
 	 */
 	@Override
-	public void helloWorld(HelloWorldInput input) {
-		br.com.senior.furb.basico.impl.HelloWorldImpl impl = new br.com.senior.furb.basico.impl.HelloWorldImpl(messengerSupplier, userId, messageSupplier);
-		impl.helloWorld(input);
+	public void getQtdTipo(GetQtdTipoInput input) {
+		br.com.senior.furb.basico.impl.GetQtdTipoImpl impl = new br.com.senior.furb.basico.impl.GetQtdTipoImpl(messengerSupplier, userId, messageSupplier);
+		impl.getQtdTipo(input);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método helloWorld
+	 * Chamada assíncrona para o método getQtdTipo
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
 	 * 
 	 */
 	@Override
-	public CompletableFuture<HelloWorldOutput> helloWorldRequest(HelloWorldInput input) {
-		br.com.senior.furb.basico.impl.HelloWorldImpl impl = new br.com.senior.furb.basico.impl.HelloWorldImpl(messengerSupplier, userId, messageSupplier);
-		return impl.helloWorldRequest(input);
+	public CompletableFuture<GetQtdTipoOutput> getQtdTipoRequest(GetQtdTipoInput input) {
+		br.com.senior.furb.basico.impl.GetQtdTipoImpl impl = new br.com.senior.furb.basico.impl.GetQtdTipoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getQtdTipoRequest(input);
 	}
 	/**
-	 * Chamada síncrona para o método retornaEstoque
+	 * Chamada síncrona para o método getDateEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a quantidade de itens no estoque de acordo com um pedido
+	 * 
 	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public RetornaEstoqueOutput retornaEstoque(RetornaEstoqueInput input, long timeout) {
-		br.com.senior.furb.basico.impl.RetornaEstoqueImpl impl = new br.com.senior.furb.basico.impl.RetornaEstoqueImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retornaEstoque(input, timeout);
+	public GetDateEventoOutput getDateEvento(GetDateEventoInput input, long timeout) {
+		br.com.senior.furb.basico.impl.GetDateEventoImpl impl = new br.com.senior.furb.basico.impl.GetDateEventoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getDateEvento(input, timeout);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método retornaEstoque
+	 * Chamada assíncrona para o método getDateEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a quantidade de itens no estoque de acordo com um pedido
+	 * 
 	 */
 	@Override
-	public void retornaEstoque(RetornaEstoqueInput input) {
-		br.com.senior.furb.basico.impl.RetornaEstoqueImpl impl = new br.com.senior.furb.basico.impl.RetornaEstoqueImpl(messengerSupplier, userId, messageSupplier);
-		impl.retornaEstoque(input);
+	public void getDateEvento(GetDateEventoInput input) {
+		br.com.senior.furb.basico.impl.GetDateEventoImpl impl = new br.com.senior.furb.basico.impl.GetDateEventoImpl(messengerSupplier, userId, messageSupplier);
+		impl.getDateEvento(input);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método retornaEstoque
+	 * Chamada assíncrona para o método getDateEvento
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a quantidade de itens no estoque de acordo com um pedido
+	 * 
 	 */
 	@Override
-	public CompletableFuture<RetornaEstoqueOutput> retornaEstoqueRequest(RetornaEstoqueInput input) {
-		br.com.senior.furb.basico.impl.RetornaEstoqueImpl impl = new br.com.senior.furb.basico.impl.RetornaEstoqueImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retornaEstoqueRequest(input);
+	public CompletableFuture<GetDateEventoOutput> getDateEventoRequest(GetDateEventoInput input) {
+		br.com.senior.furb.basico.impl.GetDateEventoImpl impl = new br.com.senior.furb.basico.impl.GetDateEventoImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getDateEventoRequest(input);
 	}
 	/**
-	 * Chamada síncrona para o método obterUrlUploadFoto
+	 * Chamada síncrona para o método getSalas
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a URL para upload da foto
+	 * 
 	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public ObterUrlUploadFotoOutput obterUrlUploadFoto(ObterUrlUploadFotoInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ObterUrlUploadFotoImpl impl = new br.com.senior.furb.basico.impl.ObterUrlUploadFotoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.obterUrlUploadFoto(input, timeout);
+	public GetSalasOutput getSalas(GetSalasInput input, long timeout) {
+		br.com.senior.furb.basico.impl.GetSalasImpl impl = new br.com.senior.furb.basico.impl.GetSalasImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getSalas(input, timeout);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método obterUrlUploadFoto
+	 * Chamada assíncrona para o método getSalas
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a URL para upload da foto
+	 * 
 	 */
 	@Override
-	public void obterUrlUploadFoto(ObterUrlUploadFotoInput input) {
-		br.com.senior.furb.basico.impl.ObterUrlUploadFotoImpl impl = new br.com.senior.furb.basico.impl.ObterUrlUploadFotoImpl(messengerSupplier, userId, messageSupplier);
-		impl.obterUrlUploadFoto(input);
+	public void getSalas(GetSalasInput input) {
+		br.com.senior.furb.basico.impl.GetSalasImpl impl = new br.com.senior.furb.basico.impl.GetSalasImpl(messengerSupplier, userId, messageSupplier);
+		impl.getSalas(input);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método obterUrlUploadFoto
+	 * Chamada assíncrona para o método getSalas
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a URL para upload da foto
+	 * 
 	 */
 	@Override
-	public CompletableFuture<ObterUrlUploadFotoOutput> obterUrlUploadFotoRequest(ObterUrlUploadFotoInput input) {
-		br.com.senior.furb.basico.impl.ObterUrlUploadFotoImpl impl = new br.com.senior.furb.basico.impl.ObterUrlUploadFotoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.obterUrlUploadFotoRequest(input);
+	public CompletableFuture<GetSalasOutput> getSalasRequest(GetSalasInput input) {
+		br.com.senior.furb.basico.impl.GetSalasImpl impl = new br.com.senior.furb.basico.impl.GetSalasImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getSalasRequest(input);
 	}
 	/**
-	 * Chamada síncrona para o método gravarFoto
+	 * Chamada síncrona para o método getSetores
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Grava a foto que foi upada
+	 * 
 	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
 	 */
 	@Override
-	public GravarFotoOutput gravarFoto(GravarFotoInput input, long timeout) {
-		br.com.senior.furb.basico.impl.GravarFotoImpl impl = new br.com.senior.furb.basico.impl.GravarFotoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.gravarFoto(input, timeout);
+	public GetSetoresOutput getSetores(GetSetoresInput input, long timeout) {
+		br.com.senior.furb.basico.impl.GetSetoresImpl impl = new br.com.senior.furb.basico.impl.GetSetoresImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getSetores(input, timeout);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método gravarFoto
+	 * Chamada assíncrona para o método getSetores
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Grava a foto que foi upada
+	 * 
 	 */
 	@Override
-	public void gravarFoto(GravarFotoInput input) {
-		br.com.senior.furb.basico.impl.GravarFotoImpl impl = new br.com.senior.furb.basico.impl.GravarFotoImpl(messengerSupplier, userId, messageSupplier);
-		impl.gravarFoto(input);
+	public void getSetores(GetSetoresInput input) {
+		br.com.senior.furb.basico.impl.GetSetoresImpl impl = new br.com.senior.furb.basico.impl.GetSetoresImpl(messengerSupplier, userId, messageSupplier);
+		impl.getSetores(input);
 	}
 	
 	/**
-	 * Chamada assíncrona para o método gravarFoto
+	 * Chamada assíncrona para o método getSetores
 	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Grava a foto que foi upada
+	 * 
 	 */
 	@Override
-	public CompletableFuture<GravarFotoOutput> gravarFotoRequest(GravarFotoInput input) {
-		br.com.senior.furb.basico.impl.GravarFotoImpl impl = new br.com.senior.furb.basico.impl.GravarFotoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.gravarFotoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método obterUrlDownloadFoto
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a URL para download da foto
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ObterUrlDownloadFotoOutput obterUrlDownloadFoto(ObterUrlDownloadFotoInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ObterUrlDownloadFotoImpl impl = new br.com.senior.furb.basico.impl.ObterUrlDownloadFotoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.obterUrlDownloadFoto(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método obterUrlDownloadFoto
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a URL para download da foto
-	 */
-	@Override
-	public void obterUrlDownloadFoto(ObterUrlDownloadFotoInput input) {
-		br.com.senior.furb.basico.impl.ObterUrlDownloadFotoImpl impl = new br.com.senior.furb.basico.impl.ObterUrlDownloadFotoImpl(messengerSupplier, userId, messageSupplier);
-		impl.obterUrlDownloadFoto(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método obterUrlDownloadFoto
-	 * Warning: this operation is PRIVATE and may have its behavior changed at any time without notice
-	 * Obtém a URL para download da foto
-	 */
-	@Override
-	public CompletableFuture<ObterUrlDownloadFotoOutput> obterUrlDownloadFotoRequest(ObterUrlDownloadFotoInput input) {
-		br.com.senior.furb.basico.impl.ObterUrlDownloadFotoImpl impl = new br.com.senior.furb.basico.impl.ObterUrlDownloadFotoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.obterUrlDownloadFotoRequest(input);
+	public CompletableFuture<GetSetoresOutput> getSetoresRequest(GetSetoresInput input) {
+		br.com.senior.furb.basico.impl.GetSetoresImpl impl = new br.com.senior.furb.basico.impl.GetSetoresImpl(messengerSupplier, userId, messageSupplier);
+		return impl.getSetoresRequest(input);
 	}
 	/**
 	 * Chamada síncrona para o método getMetadata
@@ -319,204 +257,6 @@ public class BasicoStubImpl  implements BasicoStub {
 	public CompletableFuture<GetMetadataOutput> getMetadataRequest(GetMetadataInput input) {
 		br.com.senior.furb.basico.impl.GetMetadataImpl impl = new br.com.senior.furb.basico.impl.GetMetadataImpl(messengerSupplier, userId, messageSupplier);
 		return impl.getMetadataRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método importCliente
-	 * This is a public operation
-	 * 
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ImportClienteOutput importCliente(ImportClienteInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ImportClienteImpl impl = new br.com.senior.furb.basico.impl.ImportClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.importCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método importCliente
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public void importCliente(ImportClienteInput input) {
-		br.com.senior.furb.basico.impl.ImportClienteImpl impl = new br.com.senior.furb.basico.impl.ImportClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.importCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método importCliente
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public CompletableFuture<ImportClienteOutput> importClienteRequest(ImportClienteInput input) {
-		br.com.senior.furb.basico.impl.ImportClienteImpl impl = new br.com.senior.furb.basico.impl.ImportClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.importClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método exportCliente
-	 * This is a public operation
-	 * 
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ExportClienteOutput exportCliente(ExportClienteInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ExportClienteImpl impl = new br.com.senior.furb.basico.impl.ExportClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.exportCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método exportCliente
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public void exportCliente(ExportClienteInput input) {
-		br.com.senior.furb.basico.impl.ExportClienteImpl impl = new br.com.senior.furb.basico.impl.ExportClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.exportCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método exportCliente
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public CompletableFuture<ExportClienteOutput> exportClienteRequest(ExportClienteInput input) {
-		br.com.senior.furb.basico.impl.ExportClienteImpl impl = new br.com.senior.furb.basico.impl.ExportClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.exportClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método importItem
-	 * This is a public operation
-	 * 
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ImportItemOutput importItem(ImportItemInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ImportItemImpl impl = new br.com.senior.furb.basico.impl.ImportItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.importItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método importItem
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public void importItem(ImportItemInput input) {
-		br.com.senior.furb.basico.impl.ImportItemImpl impl = new br.com.senior.furb.basico.impl.ImportItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.importItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método importItem
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public CompletableFuture<ImportItemOutput> importItemRequest(ImportItemInput input) {
-		br.com.senior.furb.basico.impl.ImportItemImpl impl = new br.com.senior.furb.basico.impl.ImportItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.importItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método exportItem
-	 * This is a public operation
-	 * 
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ExportItemOutput exportItem(ExportItemInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ExportItemImpl impl = new br.com.senior.furb.basico.impl.ExportItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.exportItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método exportItem
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public void exportItem(ExportItemInput input) {
-		br.com.senior.furb.basico.impl.ExportItemImpl impl = new br.com.senior.furb.basico.impl.ExportItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.exportItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método exportItem
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public CompletableFuture<ExportItemOutput> exportItemRequest(ExportItemInput input) {
-		br.com.senior.furb.basico.impl.ExportItemImpl impl = new br.com.senior.furb.basico.impl.ExportItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.exportItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método importPedido
-	 * This is a public operation
-	 * 
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ImportPedidoOutput importPedido(ImportPedidoInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ImportPedidoImpl impl = new br.com.senior.furb.basico.impl.ImportPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.importPedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método importPedido
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public void importPedido(ImportPedidoInput input) {
-		br.com.senior.furb.basico.impl.ImportPedidoImpl impl = new br.com.senior.furb.basico.impl.ImportPedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.importPedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método importPedido
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public CompletableFuture<ImportPedidoOutput> importPedidoRequest(ImportPedidoInput input) {
-		br.com.senior.furb.basico.impl.ImportPedidoImpl impl = new br.com.senior.furb.basico.impl.ImportPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.importPedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método exportPedido
-	 * This is a public operation
-	 * 
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public ExportPedidoOutput exportPedido(ExportPedidoInput input, long timeout) {
-		br.com.senior.furb.basico.impl.ExportPedidoImpl impl = new br.com.senior.furb.basico.impl.ExportPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.exportPedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método exportPedido
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public void exportPedido(ExportPedidoInput input) {
-		br.com.senior.furb.basico.impl.ExportPedidoImpl impl = new br.com.senior.furb.basico.impl.ExportPedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.exportPedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método exportPedido
-	 * This is a public operation
-	 * 
-	 */
-	@Override
-	public CompletableFuture<ExportPedidoOutput> exportPedidoRequest(ExportPedidoInput input) {
-		br.com.senior.furb.basico.impl.ExportPedidoImpl impl = new br.com.senior.furb.basico.impl.ExportPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.exportPedidoRequest(input);
 	}
 	/**
 	 * Chamada síncrona para o método importTipo
@@ -783,105 +523,6 @@ public class BasicoStubImpl  implements BasicoStub {
 		return impl.exportSetorRequest(input);
 	}
 	/**
-	 * Chamada síncrona para o método listCliente
-	 * This is a public operation
-	 * The 'list' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Cliente.PagedResults listCliente(Cliente.PageRequest input, long timeout) {
-		br.com.senior.furb.basico.impl.ListClienteImpl impl = new br.com.senior.furb.basico.impl.ListClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.listCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método listCliente
-	 * This is a public operation
-	 * The 'list' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void listCliente(Cliente.PageRequest input) {
-		br.com.senior.furb.basico.impl.ListClienteImpl impl = new br.com.senior.furb.basico.impl.ListClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.listCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método listCliente
-	 * This is a public operation
-	 * The 'list' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<Cliente.PagedResults> listClienteRequest(Cliente.PageRequest input) {
-		br.com.senior.furb.basico.impl.ListClienteImpl impl = new br.com.senior.furb.basico.impl.ListClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.listClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método listItem
-	 * This is a public operation
-	 * The 'list' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Item.PagedResults listItem(Item.PageRequest input, long timeout) {
-		br.com.senior.furb.basico.impl.ListItemImpl impl = new br.com.senior.furb.basico.impl.ListItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.listItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método listItem
-	 * This is a public operation
-	 * The 'list' request primitive for the Item entity.
-	 */
-	@Override
-	public void listItem(Item.PageRequest input) {
-		br.com.senior.furb.basico.impl.ListItemImpl impl = new br.com.senior.furb.basico.impl.ListItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.listItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método listItem
-	 * This is a public operation
-	 * The 'list' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<Item.PagedResults> listItemRequest(Item.PageRequest input) {
-		br.com.senior.furb.basico.impl.ListItemImpl impl = new br.com.senior.furb.basico.impl.ListItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.listItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método listPedido
-	 * This is a public operation
-	 * The 'list' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Pedido.PagedResults listPedido(Pedido.PageRequest input, long timeout) {
-		br.com.senior.furb.basico.impl.ListPedidoImpl impl = new br.com.senior.furb.basico.impl.ListPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.listPedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método listPedido
-	 * This is a public operation
-	 * The 'list' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void listPedido(Pedido.PageRequest input) {
-		br.com.senior.furb.basico.impl.ListPedidoImpl impl = new br.com.senior.furb.basico.impl.ListPedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.listPedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método listPedido
-	 * This is a public operation
-	 * The 'list' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<Pedido.PagedResults> listPedidoRequest(Pedido.PageRequest input) {
-		br.com.senior.furb.basico.impl.ListPedidoImpl impl = new br.com.senior.furb.basico.impl.ListPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.listPedidoRequest(input);
-	}
-	/**
 	 * Chamada síncrona para o método listTipo
 	 * This is a public operation
 	 * The 'list' request primitive for the Tipo entity.
@@ -1046,669 +687,6 @@ public class BasicoStubImpl  implements BasicoStub {
 		br.com.senior.furb.basico.impl.GetDependenciesImpl impl = new br.com.senior.furb.basico.impl.GetDependenciesImpl(messengerSupplier, userId, messageSupplier);
 		return impl.getDependenciesRequest();
 	}
-	/**
-	 * Chamada síncrona para o método createCliente
-	 * This is a public operation
-	 * The 'create' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Cliente createCliente(Cliente input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateClienteImpl impl = new br.com.senior.furb.basico.impl.CreateClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createCliente
-	 * This is a public operation
-	 * The 'create' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void createCliente(Cliente input) {
-		br.com.senior.furb.basico.impl.CreateClienteImpl impl = new br.com.senior.furb.basico.impl.CreateClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.createCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createCliente
-	 * This is a public operation
-	 * The 'create' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<Cliente> createClienteRequest(Cliente input) {
-		br.com.senior.furb.basico.impl.CreateClienteImpl impl = new br.com.senior.furb.basico.impl.CreateClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método createBulkCliente
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public CreateBulkClienteOutput createBulkCliente(CreateBulkClienteInput input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateBulkClienteImpl impl = new br.com.senior.furb.basico.impl.CreateBulkClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createBulkCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createBulkCliente
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void createBulkCliente(CreateBulkClienteInput input) {
-		br.com.senior.furb.basico.impl.CreateBulkClienteImpl impl = new br.com.senior.furb.basico.impl.CreateBulkClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.createBulkCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createBulkCliente
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<CreateBulkClienteOutput> createBulkClienteRequest(CreateBulkClienteInput input) {
-		br.com.senior.furb.basico.impl.CreateBulkClienteImpl impl = new br.com.senior.furb.basico.impl.CreateBulkClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createBulkClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método createMergeCliente
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Cliente createMergeCliente(Cliente input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateMergeClienteImpl impl = new br.com.senior.furb.basico.impl.CreateMergeClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createMergeCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createMergeCliente
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void createMergeCliente(Cliente input) {
-		br.com.senior.furb.basico.impl.CreateMergeClienteImpl impl = new br.com.senior.furb.basico.impl.CreateMergeClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.createMergeCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createMergeCliente
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<Cliente> createMergeClienteRequest(Cliente input) {
-		br.com.senior.furb.basico.impl.CreateMergeClienteImpl impl = new br.com.senior.furb.basico.impl.CreateMergeClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createMergeClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método retrieveCliente
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Cliente retrieveCliente(Cliente.Id input, long timeout) {
-		br.com.senior.furb.basico.impl.RetrieveClienteImpl impl = new br.com.senior.furb.basico.impl.RetrieveClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retrieveCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método retrieveCliente
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void retrieveCliente(Cliente.Id input) {
-		br.com.senior.furb.basico.impl.RetrieveClienteImpl impl = new br.com.senior.furb.basico.impl.RetrieveClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.retrieveCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método retrieveCliente
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<Cliente> retrieveClienteRequest(Cliente.Id input) {
-		br.com.senior.furb.basico.impl.RetrieveClienteImpl impl = new br.com.senior.furb.basico.impl.RetrieveClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retrieveClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método updateCliente
-	 * This is a public operation
-	 * The 'update' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Cliente updateCliente(Cliente input, long timeout) {
-		br.com.senior.furb.basico.impl.UpdateClienteImpl impl = new br.com.senior.furb.basico.impl.UpdateClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateCliente
-	 * This is a public operation
-	 * The 'update' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void updateCliente(Cliente input) {
-		br.com.senior.furb.basico.impl.UpdateClienteImpl impl = new br.com.senior.furb.basico.impl.UpdateClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.updateCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateCliente
-	 * This is a public operation
-	 * The 'update' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<Cliente> updateClienteRequest(Cliente input) {
-		br.com.senior.furb.basico.impl.UpdateClienteImpl impl = new br.com.senior.furb.basico.impl.UpdateClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método updateMergeCliente
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Cliente updateMergeCliente(Cliente input, long timeout) {
-		br.com.senior.furb.basico.impl.UpdateMergeClienteImpl impl = new br.com.senior.furb.basico.impl.UpdateMergeClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateMergeCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateMergeCliente
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void updateMergeCliente(Cliente input) {
-		br.com.senior.furb.basico.impl.UpdateMergeClienteImpl impl = new br.com.senior.furb.basico.impl.UpdateMergeClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.updateMergeCliente(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateMergeCliente
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Cliente entity.
-	 */
-	@Override
-	public CompletableFuture<Cliente> updateMergeClienteRequest(Cliente input) {
-		br.com.senior.furb.basico.impl.UpdateMergeClienteImpl impl = new br.com.senior.furb.basico.impl.UpdateMergeClienteImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateMergeClienteRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método deleteCliente
-	 * This is a public operation
-	 * The 'delete' request primitive for the Cliente entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public void deleteCliente(Cliente.Id input, long timeout) {
-		br.com.senior.furb.basico.impl.DeleteClienteImpl impl = new br.com.senior.furb.basico.impl.DeleteClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.deleteCliente(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método deleteCliente
-	 * This is a public operation
-	 * The 'delete' request primitive for the Cliente entity.
-	 */
-	@Override
-	public void deleteCliente(Cliente.Id input) {
-		br.com.senior.furb.basico.impl.DeleteClienteImpl impl = new br.com.senior.furb.basico.impl.DeleteClienteImpl(messengerSupplier, userId, messageSupplier);
-		impl.deleteCliente(input);
-	}
-	
-	/**
-	 * Chamada síncrona para o método createItem
-	 * This is a public operation
-	 * The 'create' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Item createItem(Item input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateItemImpl impl = new br.com.senior.furb.basico.impl.CreateItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createItem
-	 * This is a public operation
-	 * The 'create' request primitive for the Item entity.
-	 */
-	@Override
-	public void createItem(Item input) {
-		br.com.senior.furb.basico.impl.CreateItemImpl impl = new br.com.senior.furb.basico.impl.CreateItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.createItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createItem
-	 * This is a public operation
-	 * The 'create' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<Item> createItemRequest(Item input) {
-		br.com.senior.furb.basico.impl.CreateItemImpl impl = new br.com.senior.furb.basico.impl.CreateItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método createBulkItem
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public CreateBulkItemOutput createBulkItem(CreateBulkItemInput input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateBulkItemImpl impl = new br.com.senior.furb.basico.impl.CreateBulkItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createBulkItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createBulkItem
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Item entity.
-	 */
-	@Override
-	public void createBulkItem(CreateBulkItemInput input) {
-		br.com.senior.furb.basico.impl.CreateBulkItemImpl impl = new br.com.senior.furb.basico.impl.CreateBulkItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.createBulkItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createBulkItem
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<CreateBulkItemOutput> createBulkItemRequest(CreateBulkItemInput input) {
-		br.com.senior.furb.basico.impl.CreateBulkItemImpl impl = new br.com.senior.furb.basico.impl.CreateBulkItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createBulkItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método createMergeItem
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Item createMergeItem(Item input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateMergeItemImpl impl = new br.com.senior.furb.basico.impl.CreateMergeItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createMergeItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createMergeItem
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Item entity.
-	 */
-	@Override
-	public void createMergeItem(Item input) {
-		br.com.senior.furb.basico.impl.CreateMergeItemImpl impl = new br.com.senior.furb.basico.impl.CreateMergeItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.createMergeItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createMergeItem
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<Item> createMergeItemRequest(Item input) {
-		br.com.senior.furb.basico.impl.CreateMergeItemImpl impl = new br.com.senior.furb.basico.impl.CreateMergeItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createMergeItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método retrieveItem
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Item retrieveItem(Item.Id input, long timeout) {
-		br.com.senior.furb.basico.impl.RetrieveItemImpl impl = new br.com.senior.furb.basico.impl.RetrieveItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retrieveItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método retrieveItem
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Item entity.
-	 */
-	@Override
-	public void retrieveItem(Item.Id input) {
-		br.com.senior.furb.basico.impl.RetrieveItemImpl impl = new br.com.senior.furb.basico.impl.RetrieveItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.retrieveItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método retrieveItem
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<Item> retrieveItemRequest(Item.Id input) {
-		br.com.senior.furb.basico.impl.RetrieveItemImpl impl = new br.com.senior.furb.basico.impl.RetrieveItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retrieveItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método updateItem
-	 * This is a public operation
-	 * The 'update' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Item updateItem(Item input, long timeout) {
-		br.com.senior.furb.basico.impl.UpdateItemImpl impl = new br.com.senior.furb.basico.impl.UpdateItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateItem
-	 * This is a public operation
-	 * The 'update' request primitive for the Item entity.
-	 */
-	@Override
-	public void updateItem(Item input) {
-		br.com.senior.furb.basico.impl.UpdateItemImpl impl = new br.com.senior.furb.basico.impl.UpdateItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.updateItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateItem
-	 * This is a public operation
-	 * The 'update' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<Item> updateItemRequest(Item input) {
-		br.com.senior.furb.basico.impl.UpdateItemImpl impl = new br.com.senior.furb.basico.impl.UpdateItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método updateMergeItem
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Item updateMergeItem(Item input, long timeout) {
-		br.com.senior.furb.basico.impl.UpdateMergeItemImpl impl = new br.com.senior.furb.basico.impl.UpdateMergeItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateMergeItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateMergeItem
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Item entity.
-	 */
-	@Override
-	public void updateMergeItem(Item input) {
-		br.com.senior.furb.basico.impl.UpdateMergeItemImpl impl = new br.com.senior.furb.basico.impl.UpdateMergeItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.updateMergeItem(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateMergeItem
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Item entity.
-	 */
-	@Override
-	public CompletableFuture<Item> updateMergeItemRequest(Item input) {
-		br.com.senior.furb.basico.impl.UpdateMergeItemImpl impl = new br.com.senior.furb.basico.impl.UpdateMergeItemImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateMergeItemRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método deleteItem
-	 * This is a public operation
-	 * The 'delete' request primitive for the Item entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public void deleteItem(Item.Id input, long timeout) {
-		br.com.senior.furb.basico.impl.DeleteItemImpl impl = new br.com.senior.furb.basico.impl.DeleteItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.deleteItem(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método deleteItem
-	 * This is a public operation
-	 * The 'delete' request primitive for the Item entity.
-	 */
-	@Override
-	public void deleteItem(Item.Id input) {
-		br.com.senior.furb.basico.impl.DeleteItemImpl impl = new br.com.senior.furb.basico.impl.DeleteItemImpl(messengerSupplier, userId, messageSupplier);
-		impl.deleteItem(input);
-	}
-	
-	/**
-	 * Chamada síncrona para o método createPedido
-	 * This is a public operation
-	 * The 'create' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Pedido createPedido(Pedido input, long timeout) {
-		br.com.senior.furb.basico.impl.CreatePedidoImpl impl = new br.com.senior.furb.basico.impl.CreatePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createPedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createPedido
-	 * This is a public operation
-	 * The 'create' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void createPedido(Pedido input) {
-		br.com.senior.furb.basico.impl.CreatePedidoImpl impl = new br.com.senior.furb.basico.impl.CreatePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.createPedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createPedido
-	 * This is a public operation
-	 * The 'create' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<Pedido> createPedidoRequest(Pedido input) {
-		br.com.senior.furb.basico.impl.CreatePedidoImpl impl = new br.com.senior.furb.basico.impl.CreatePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createPedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método createBulkPedido
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public CreateBulkPedidoOutput createBulkPedido(CreateBulkPedidoInput input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateBulkPedidoImpl impl = new br.com.senior.furb.basico.impl.CreateBulkPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createBulkPedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createBulkPedido
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void createBulkPedido(CreateBulkPedidoInput input) {
-		br.com.senior.furb.basico.impl.CreateBulkPedidoImpl impl = new br.com.senior.furb.basico.impl.CreateBulkPedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.createBulkPedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createBulkPedido
-	 * This is a public operation
-	 * The 'createBulk' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<CreateBulkPedidoOutput> createBulkPedidoRequest(CreateBulkPedidoInput input) {
-		br.com.senior.furb.basico.impl.CreateBulkPedidoImpl impl = new br.com.senior.furb.basico.impl.CreateBulkPedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createBulkPedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método createMergePedido
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Pedido createMergePedido(Pedido input, long timeout) {
-		br.com.senior.furb.basico.impl.CreateMergePedidoImpl impl = new br.com.senior.furb.basico.impl.CreateMergePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createMergePedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createMergePedido
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void createMergePedido(Pedido input) {
-		br.com.senior.furb.basico.impl.CreateMergePedidoImpl impl = new br.com.senior.furb.basico.impl.CreateMergePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.createMergePedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método createMergePedido
-	 * This is a public operation
-	 * The 'createMerge' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<Pedido> createMergePedidoRequest(Pedido input) {
-		br.com.senior.furb.basico.impl.CreateMergePedidoImpl impl = new br.com.senior.furb.basico.impl.CreateMergePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.createMergePedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método retrievePedido
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Pedido retrievePedido(Pedido.Id input, long timeout) {
-		br.com.senior.furb.basico.impl.RetrievePedidoImpl impl = new br.com.senior.furb.basico.impl.RetrievePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retrievePedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método retrievePedido
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void retrievePedido(Pedido.Id input) {
-		br.com.senior.furb.basico.impl.RetrievePedidoImpl impl = new br.com.senior.furb.basico.impl.RetrievePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.retrievePedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método retrievePedido
-	 * This is a public operation
-	 * The 'retrieve' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<Pedido> retrievePedidoRequest(Pedido.Id input) {
-		br.com.senior.furb.basico.impl.RetrievePedidoImpl impl = new br.com.senior.furb.basico.impl.RetrievePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.retrievePedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método updatePedido
-	 * This is a public operation
-	 * The 'update' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Pedido updatePedido(Pedido input, long timeout) {
-		br.com.senior.furb.basico.impl.UpdatePedidoImpl impl = new br.com.senior.furb.basico.impl.UpdatePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updatePedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updatePedido
-	 * This is a public operation
-	 * The 'update' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void updatePedido(Pedido input) {
-		br.com.senior.furb.basico.impl.UpdatePedidoImpl impl = new br.com.senior.furb.basico.impl.UpdatePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.updatePedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updatePedido
-	 * This is a public operation
-	 * The 'update' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<Pedido> updatePedidoRequest(Pedido input) {
-		br.com.senior.furb.basico.impl.UpdatePedidoImpl impl = new br.com.senior.furb.basico.impl.UpdatePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updatePedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método updateMergePedido
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public Pedido updateMergePedido(Pedido input, long timeout) {
-		br.com.senior.furb.basico.impl.UpdateMergePedidoImpl impl = new br.com.senior.furb.basico.impl.UpdateMergePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateMergePedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateMergePedido
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void updateMergePedido(Pedido input) {
-		br.com.senior.furb.basico.impl.UpdateMergePedidoImpl impl = new br.com.senior.furb.basico.impl.UpdateMergePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.updateMergePedido(input);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método updateMergePedido
-	 * This is a public operation
-	 * The 'updateMerge' request primitive for the Pedido entity.
-	 */
-	@Override
-	public CompletableFuture<Pedido> updateMergePedidoRequest(Pedido input) {
-		br.com.senior.furb.basico.impl.UpdateMergePedidoImpl impl = new br.com.senior.furb.basico.impl.UpdateMergePedidoImpl(messengerSupplier, userId, messageSupplier);
-		return impl.updateMergePedidoRequest(input);
-	}
-	/**
-	 * Chamada síncrona para o método deletePedido
-	 * This is a public operation
-	 * The 'delete' request primitive for the Pedido entity.
-	 * @throws BasicoMessageException quando um erro com payload for retornado pela mensageria
-	 */
-	@Override
-	public void deletePedido(Pedido.Id input, long timeout) {
-		br.com.senior.furb.basico.impl.DeletePedidoImpl impl = new br.com.senior.furb.basico.impl.DeletePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.deletePedido(input, timeout);
-	}
-	
-	/**
-	 * Chamada assíncrona para o método deletePedido
-	 * This is a public operation
-	 * The 'delete' request primitive for the Pedido entity.
-	 */
-	@Override
-	public void deletePedido(Pedido.Id input) {
-		br.com.senior.furb.basico.impl.DeletePedidoImpl impl = new br.com.senior.furb.basico.impl.DeletePedidoImpl(messengerSupplier, userId, messageSupplier);
-		impl.deletePedido(input);
-	}
-	
 	/**
 	 * Chamada síncrona para o método createTipo
 	 * This is a public operation
@@ -2617,96 +1595,6 @@ public class BasicoStubImpl  implements BasicoStub {
 	public void publishNotifyUserEvent( NotifyUserEventPayload input ) {
 	
 		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.NOTIFY_USER_EVENT, DtoJsonConverter.toJSON(input));
-		try {
-			addMessageHeaders(message);
-			messengerSupplier.get().publish(message);
-		} catch (Exception e) {
-			throw new BasicoException("Erro ao enviar a mensagem", e);
-		}
-	}
-	
-	/**
-	* Chamada assíncrona para o método publishImportClienteEvent
-	* This is a public operation
-	*/
-	public void publishImportClienteEvent( ImportClienteEventPayload input ) {
-	
-		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.IMPORT_CLIENTE_EVENT, DtoJsonConverter.toJSON(input));
-		try {
-			addMessageHeaders(message);
-			messengerSupplier.get().publish(message);
-		} catch (Exception e) {
-			throw new BasicoException("Erro ao enviar a mensagem", e);
-		}
-	}
-	
-	/**
-	* Chamada assíncrona para o método publishExportClienteEvent
-	* This is a public operation
-	*/
-	public void publishExportClienteEvent( ExportClienteEventPayload input ) {
-	
-		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.EXPORT_CLIENTE_EVENT, DtoJsonConverter.toJSON(input));
-		try {
-			addMessageHeaders(message);
-			messengerSupplier.get().publish(message);
-		} catch (Exception e) {
-			throw new BasicoException("Erro ao enviar a mensagem", e);
-		}
-	}
-	
-	/**
-	* Chamada assíncrona para o método publishImportItemEvent
-	* This is a public operation
-	*/
-	public void publishImportItemEvent( ImportItemEventPayload input ) {
-	
-		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.IMPORT_ITEM_EVENT, DtoJsonConverter.toJSON(input));
-		try {
-			addMessageHeaders(message);
-			messengerSupplier.get().publish(message);
-		} catch (Exception e) {
-			throw new BasicoException("Erro ao enviar a mensagem", e);
-		}
-	}
-	
-	/**
-	* Chamada assíncrona para o método publishExportItemEvent
-	* This is a public operation
-	*/
-	public void publishExportItemEvent( ExportItemEventPayload input ) {
-	
-		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.EXPORT_ITEM_EVENT, DtoJsonConverter.toJSON(input));
-		try {
-			addMessageHeaders(message);
-			messengerSupplier.get().publish(message);
-		} catch (Exception e) {
-			throw new BasicoException("Erro ao enviar a mensagem", e);
-		}
-	}
-	
-	/**
-	* Chamada assíncrona para o método publishImportPedidoEvent
-	* This is a public operation
-	*/
-	public void publishImportPedidoEvent( ImportPedidoEventPayload input ) {
-	
-		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.IMPORT_PEDIDO_EVENT, DtoJsonConverter.toJSON(input));
-		try {
-			addMessageHeaders(message);
-			messengerSupplier.get().publish(message);
-		} catch (Exception e) {
-			throw new BasicoException("Erro ao enviar a mensagem", e);
-		}
-	}
-	
-	/**
-	* Chamada assíncrona para o método publishExportPedidoEvent
-	* This is a public operation
-	*/
-	public void publishExportPedidoEvent( ExportPedidoEventPayload input ) {
-	
-		Message message = new Message(userId.getTenant(), BasicoConstants.DOMAIN, BasicoConstants.SERVICE, BasicoConstants.Events.EXPORT_PEDIDO_EVENT, DtoJsonConverter.toJSON(input));
 		try {
 			addMessageHeaders(message);
 			messengerSupplier.get().publish(message);

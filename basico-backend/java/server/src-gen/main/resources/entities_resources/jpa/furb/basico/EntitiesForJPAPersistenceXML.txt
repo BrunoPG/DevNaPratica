@@ -1,8 +1,4 @@
-<!-- GENERATED ENTITIES: 2019-06-29 04:27:49:141 -->
-<class>br.com.senior.furb.basico.ClienteEntity</class>
-<class>br.com.senior.furb.basico.ItemEntity</class>
-<class>br.com.senior.furb.basico.PedidoEntity</class>
-<class>br.com.senior.furb.basico.Pedido_ItensEntity</class>
+<!-- GENERATED ENTITIES: 2019-07-01 18:39:26:800 -->
 <class>br.com.senior.furb.basico.TipoEntity</class>
 <class>br.com.senior.furb.basico.EventoEntity</class>
 <class>br.com.senior.furb.basico.SalaEntity</class>

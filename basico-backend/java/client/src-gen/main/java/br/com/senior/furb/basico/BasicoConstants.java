@@ -9,94 +9,73 @@ public interface BasicoConstants {
     
     interface Commands {
     	/**
-    	 * @see HelloWorldInput the request payload
+    	 * @see GetQtdTipoInput the request payload
     	 */
-    	String HELLO_WORLD = "helloWorld";
+    	String GET_QTD_TIPO = "getQtdTipo";
     	/**
-    	 * The success response primitive for helloWorld.
+    	 * The success response primitive for getQtdTipo.
     	 *
-    	 * @see #HELLO_WORLD the request primitive
-    	 * @see HelloWorldOutput the response payload
+    	 * @see #GET_QTD_TIPO the request primitive
+    	 * @see GetQtdTipoOutput the response payload
     	 */
-    	String HELLO_WORLD_RESPONSE = "helloWorldResponse";
+    	String GET_QTD_TIPO_RESPONSE = "getQtdTipoResponse";
     	/**
-    	 * An error response primitive for helloWorld.
+    	 * An error response primitive for getQtdTipo.
     	 *
-    	 * @see #HELLO_WORLD the request primitive
+    	 * @see #GET_QTD_TIPO the request primitive
     	 */
-    	String HELLO_WORLD_ERROR = "helloWorldError";
+    	String GET_QTD_TIPO_ERROR = "getQtdTipoError";
     	/**
-    	 * Obtém a quantidade de itens no estoque de acordo com um pedido
-    	 * @see RetornaEstoqueInput the request payload
+    	 * @see GetDateEventoInput the request payload
     	 */
-    	String RETORNA_ESTOQUE = "retornaEstoque";
+    	String GET_DATE_EVENTO = "getDateEvento";
     	/**
-    	 * The success response primitive for retornaEstoque.
+    	 * The success response primitive for getDateEvento.
     	 *
-    	 * @see #RETORNA_ESTOQUE the request primitive
-    	 * @see RetornaEstoqueOutput the response payload
+    	 * @see #GET_DATE_EVENTO the request primitive
+    	 * @see GetDateEventoOutput the response payload
     	 */
-    	String RETORNA_ESTOQUE_RESPONSE = "retornaEstoqueResponse";
+    	String GET_DATE_EVENTO_RESPONSE = "getDateEventoResponse";
     	/**
-    	 * An error response primitive for retornaEstoque.
+    	 * An error response primitive for getDateEvento.
     	 *
-    	 * @see #RETORNA_ESTOQUE the request primitive
+    	 * @see #GET_DATE_EVENTO the request primitive
     	 */
-    	String RETORNA_ESTOQUE_ERROR = "retornaEstoqueError";
+    	String GET_DATE_EVENTO_ERROR = "getDateEventoError";
     	/**
-    	 * Obtém a URL para upload da foto
-    	 * @see ObterUrlUploadFotoInput the request payload
+    	 * @see GetSalasInput the request payload
     	 */
-    	String OBTER_URL_UPLOAD_FOTO = "obterUrlUploadFoto";
+    	String GET_SALAS = "getSalas";
     	/**
-    	 * The success response primitive for obterUrlUploadFoto.
+    	 * The success response primitive for getSalas.
     	 *
-    	 * @see #OBTER_URL_UPLOAD_FOTO the request primitive
-    	 * @see ObterUrlUploadFotoOutput the response payload
+    	 * @see #GET_SALAS the request primitive
+    	 * @see GetSalasOutput the response payload
     	 */
-    	String OBTER_URL_UPLOAD_FOTO_RESPONSE = "obterUrlUploadFotoResponse";
+    	String GET_SALAS_RESPONSE = "getSalasResponse";
     	/**
-    	 * An error response primitive for obterUrlUploadFoto.
+    	 * An error response primitive for getSalas.
     	 *
-    	 * @see #OBTER_URL_UPLOAD_FOTO the request primitive
+    	 * @see #GET_SALAS the request primitive
     	 */
-    	String OBTER_URL_UPLOAD_FOTO_ERROR = "obterUrlUploadFotoError";
+    	String GET_SALAS_ERROR = "getSalasError";
     	/**
-    	 * Grava a foto que foi upada
-    	 * @see GravarFotoInput the request payload
+    	 * @see GetSetoresInput the request payload
     	 */
-    	String GRAVAR_FOTO = "gravarFoto";
+    	String GET_SETORES = "getSetores";
     	/**
-    	 * The success response primitive for gravarFoto.
+    	 * The success response primitive for getSetores.
     	 *
-    	 * @see #GRAVAR_FOTO the request primitive
-    	 * @see GravarFotoOutput the response payload
+    	 * @see #GET_SETORES the request primitive
+    	 * @see GetSetoresOutput the response payload
     	 */
-    	String GRAVAR_FOTO_RESPONSE = "gravarFotoResponse";
+    	String GET_SETORES_RESPONSE = "getSetoresResponse";
     	/**
-    	 * An error response primitive for gravarFoto.
+    	 * An error response primitive for getSetores.
     	 *
-    	 * @see #GRAVAR_FOTO the request primitive
+    	 * @see #GET_SETORES the request primitive
     	 */
-    	String GRAVAR_FOTO_ERROR = "gravarFotoError";
-    	/**
-    	 * Obtém a URL para download da foto
-    	 * @see ObterUrlDownloadFotoInput the request payload
-    	 */
-    	String OBTER_URL_DOWNLOAD_FOTO = "obterUrlDownloadFoto";
-    	/**
-    	 * The success response primitive for obterUrlDownloadFoto.
-    	 *
-    	 * @see #OBTER_URL_DOWNLOAD_FOTO the request primitive
-    	 * @see ObterUrlDownloadFotoOutput the response payload
-    	 */
-    	String OBTER_URL_DOWNLOAD_FOTO_RESPONSE = "obterUrlDownloadFotoResponse";
-    	/**
-    	 * An error response primitive for obterUrlDownloadFoto.
-    	 *
-    	 * @see #OBTER_URL_DOWNLOAD_FOTO the request primitive
-    	 */
-    	String OBTER_URL_DOWNLOAD_FOTO_ERROR = "obterUrlDownloadFotoError";
+    	String GET_SETORES_ERROR = "getSetoresError";
     	/**
     	 * Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested.
     	 * @see GetMetadataInput the request payload
@@ -115,108 +94,6 @@ public interface BasicoConstants {
     	 * @see #GET_METADATA the request primitive
     	 */
     	String GET_METADATA_ERROR = "getMetadataError";
-    	/**
-    	 * @see ImportClienteInput the request payload
-    	 */
-    	String IMPORT_CLIENTE = "importCliente";
-    	/**
-    	 * The success response primitive for importCliente.
-    	 *
-    	 * @see #IMPORT_CLIENTE the request primitive
-    	 * @see ImportClienteOutput the response payload
-    	 */
-    	String IMPORT_CLIENTE_RESPONSE = "importClienteResponse";
-    	/**
-    	 * An error response primitive for importCliente.
-    	 *
-    	 * @see #IMPORT_CLIENTE the request primitive
-    	 */
-    	String IMPORT_CLIENTE_ERROR = "importClienteError";
-    	/**
-    	 * @see ExportClienteInput the request payload
-    	 */
-    	String EXPORT_CLIENTE = "exportCliente";
-    	/**
-    	 * The success response primitive for exportCliente.
-    	 *
-    	 * @see #EXPORT_CLIENTE the request primitive
-    	 * @see ExportClienteOutput the response payload
-    	 */
-    	String EXPORT_CLIENTE_RESPONSE = "exportClienteResponse";
-    	/**
-    	 * An error response primitive for exportCliente.
-    	 *
-    	 * @see #EXPORT_CLIENTE the request primitive
-    	 */
-    	String EXPORT_CLIENTE_ERROR = "exportClienteError";
-    	/**
-    	 * @see ImportItemInput the request payload
-    	 */
-    	String IMPORT_ITEM = "importItem";
-    	/**
-    	 * The success response primitive for importItem.
-    	 *
-    	 * @see #IMPORT_ITEM the request primitive
-    	 * @see ImportItemOutput the response payload
-    	 */
-    	String IMPORT_ITEM_RESPONSE = "importItemResponse";
-    	/**
-    	 * An error response primitive for importItem.
-    	 *
-    	 * @see #IMPORT_ITEM the request primitive
-    	 */
-    	String IMPORT_ITEM_ERROR = "importItemError";
-    	/**
-    	 * @see ExportItemInput the request payload
-    	 */
-    	String EXPORT_ITEM = "exportItem";
-    	/**
-    	 * The success response primitive for exportItem.
-    	 *
-    	 * @see #EXPORT_ITEM the request primitive
-    	 * @see ExportItemOutput the response payload
-    	 */
-    	String EXPORT_ITEM_RESPONSE = "exportItemResponse";
-    	/**
-    	 * An error response primitive for exportItem.
-    	 *
-    	 * @see #EXPORT_ITEM the request primitive
-    	 */
-    	String EXPORT_ITEM_ERROR = "exportItemError";
-    	/**
-    	 * @see ImportPedidoInput the request payload
-    	 */
-    	String IMPORT_PEDIDO = "importPedido";
-    	/**
-    	 * The success response primitive for importPedido.
-    	 *
-    	 * @see #IMPORT_PEDIDO the request primitive
-    	 * @see ImportPedidoOutput the response payload
-    	 */
-    	String IMPORT_PEDIDO_RESPONSE = "importPedidoResponse";
-    	/**
-    	 * An error response primitive for importPedido.
-    	 *
-    	 * @see #IMPORT_PEDIDO the request primitive
-    	 */
-    	String IMPORT_PEDIDO_ERROR = "importPedidoError";
-    	/**
-    	 * @see ExportPedidoInput the request payload
-    	 */
-    	String EXPORT_PEDIDO = "exportPedido";
-    	/**
-    	 * The success response primitive for exportPedido.
-    	 *
-    	 * @see #EXPORT_PEDIDO the request primitive
-    	 * @see ExportPedidoOutput the response payload
-    	 */
-    	String EXPORT_PEDIDO_RESPONSE = "exportPedidoResponse";
-    	/**
-    	 * An error response primitive for exportPedido.
-    	 *
-    	 * @see #EXPORT_PEDIDO the request primitive
-    	 */
-    	String EXPORT_PEDIDO_ERROR = "exportPedidoError";
     	/**
     	 * @see ImportTipoInput the request payload
     	 */
@@ -354,60 +231,6 @@ public interface BasicoConstants {
     	 */
     	String EXPORT_SETOR_ERROR = "exportSetorError";
     	/**
-    	 * The 'list' request primitive for the Cliente entity.
-    	 * @see cliente.pageRequest the request payload
-    	 */
-    	String LIST_CLIENTE = "listCliente";
-    	/**
-    	 * The success response primitive for listCliente.
-    	 *
-    	 * @see #LIST_CLIENTE the request primitive
-    	 * @see Cliente.PagedResults the response payload
-    	 */
-    	String LIST_CLIENTE_RESPONSE = "listClienteResponse";
-    	/**
-    	 * An error response primitive for listCliente.
-    	 *
-    	 * @see #LIST_CLIENTE the request primitive
-    	 */
-    	String LIST_CLIENTE_ERROR = "listClienteError";
-    	/**
-    	 * The 'list' request primitive for the Item entity.
-    	 * @see item.pageRequest the request payload
-    	 */
-    	String LIST_ITEM = "listItem";
-    	/**
-    	 * The success response primitive for listItem.
-    	 *
-    	 * @see #LIST_ITEM the request primitive
-    	 * @see Item.PagedResults the response payload
-    	 */
-    	String LIST_ITEM_RESPONSE = "listItemResponse";
-    	/**
-    	 * An error response primitive for listItem.
-    	 *
-    	 * @see #LIST_ITEM the request primitive
-    	 */
-    	String LIST_ITEM_ERROR = "listItemError";
-    	/**
-    	 * The 'list' request primitive for the Pedido entity.
-    	 * @see pedido.pageRequest the request payload
-    	 */
-    	String LIST_PEDIDO = "listPedido";
-    	/**
-    	 * The success response primitive for listPedido.
-    	 *
-    	 * @see #LIST_PEDIDO the request primitive
-    	 * @see Pedido.PagedResults the response payload
-    	 */
-    	String LIST_PEDIDO_RESPONSE = "listPedidoResponse";
-    	/**
-    	 * An error response primitive for listPedido.
-    	 *
-    	 * @see #LIST_PEDIDO the request primitive
-    	 */
-    	String LIST_PEDIDO_ERROR = "listPedidoError";
-    	/**
     	 * The 'list' request primitive for the Tipo entity.
     	 * @see tipo.pageRequest the request payload
     	 */
@@ -496,366 +319,6 @@ public interface BasicoConstants {
     	 * @see #GET_DEPENDENCIES the request primitive
     	 */
     	String GET_DEPENDENCIES_ERROR = "getDependenciesError";
-    	/**
-    	 * The 'create' request primitive for the Cliente entity.
-    	 * @see Cliente the request payload
-    	 */
-    	String CREATE_CLIENTE = "createCliente";
-    	/**
-    	 * The success response primitive for createCliente.
-    	 *
-    	 * @see #CREATE_CLIENTE the request primitive
-    	 */
-    	String CREATE_CLIENTE_RESPONSE = "createClienteResponse";
-    	/**
-    	 * An error response primitive for createCliente.
-    	 *
-    	 * @see #CREATE_CLIENTE the request primitive
-    	 */
-    	String CREATE_CLIENTE_ERROR = "createClienteError";
-    	/**
-    	 * The 'createBulk' request primitive for the Cliente entity.
-    	 * @see CreateBulkClienteInput the request payload
-    	 */
-    	String CREATE_BULK_CLIENTE = "createBulkCliente";
-    	/**
-    	 * The success response primitive for createBulkCliente.
-    	 *
-    	 * @see #CREATE_BULK_CLIENTE the request primitive
-    	 * @see CreateBulkClienteOutput the response payload
-    	 */
-    	String CREATE_BULK_CLIENTE_RESPONSE = "createBulkClienteResponse";
-    	/**
-    	 * An error response primitive for createBulkCliente.
-    	 *
-    	 * @see #CREATE_BULK_CLIENTE the request primitive
-    	 */
-    	String CREATE_BULK_CLIENTE_ERROR = "createBulkClienteError";
-    	/**
-    	 * The 'createMerge' request primitive for the Cliente entity.
-    	 * @see Cliente the request payload
-    	 */
-    	String CREATE_MERGE_CLIENTE = "createMergeCliente";
-    	/**
-    	 * The success response primitive for createMergeCliente.
-    	 *
-    	 * @see #CREATE_MERGE_CLIENTE the request primitive
-    	 */
-    	String CREATE_MERGE_CLIENTE_RESPONSE = "createMergeClienteResponse";
-    	/**
-    	 * An error response primitive for createMergeCliente.
-    	 *
-    	 * @see #CREATE_MERGE_CLIENTE the request primitive
-    	 */
-    	String CREATE_MERGE_CLIENTE_ERROR = "createMergeClienteError";
-    	/**
-    	 * The 'retrieve' request primitive for the Cliente entity.
-    	 * @see Cliente.Id the request payload
-    	 */
-    	String RETRIEVE_CLIENTE = "retrieveCliente";
-    	/**
-    	 * The success response primitive for retrieveCliente.
-    	 *
-    	 * @see #RETRIEVE_CLIENTE the request primitive
-    	 */
-    	String RETRIEVE_CLIENTE_RESPONSE = "retrieveClienteResponse";
-    	/**
-    	 * An error response primitive for retrieveCliente.
-    	 *
-    	 * @see #RETRIEVE_CLIENTE the request primitive
-    	 */
-    	String RETRIEVE_CLIENTE_ERROR = "retrieveClienteError";
-    	/**
-    	 * The 'update' request primitive for the Cliente entity.
-    	 * @see Cliente the request payload
-    	 */
-    	String UPDATE_CLIENTE = "updateCliente";
-    	/**
-    	 * The success response primitive for updateCliente.
-    	 *
-    	 * @see #UPDATE_CLIENTE the request primitive
-    	 */
-    	String UPDATE_CLIENTE_RESPONSE = "updateClienteResponse";
-    	/**
-    	 * An error response primitive for updateCliente.
-    	 *
-    	 * @see #UPDATE_CLIENTE the request primitive
-    	 */
-    	String UPDATE_CLIENTE_ERROR = "updateClienteError";
-    	/**
-    	 * The 'updateMerge' request primitive for the Cliente entity.
-    	 * @see Cliente the request payload
-    	 */
-    	String UPDATE_MERGE_CLIENTE = "updateMergeCliente";
-    	/**
-    	 * The success response primitive for updateMergeCliente.
-    	 *
-    	 * @see #UPDATE_MERGE_CLIENTE the request primitive
-    	 */
-    	String UPDATE_MERGE_CLIENTE_RESPONSE = "updateMergeClienteResponse";
-    	/**
-    	 * An error response primitive for updateMergeCliente.
-    	 *
-    	 * @see #UPDATE_MERGE_CLIENTE the request primitive
-    	 */
-    	String UPDATE_MERGE_CLIENTE_ERROR = "updateMergeClienteError";
-    	/**
-    	 * The 'delete' request primitive for the Cliente entity.
-    	 * @see Cliente.Id the request payload
-    	 */
-    	String DELETE_CLIENTE = "deleteCliente";
-    	/**
-    	 * The success response primitive for deleteCliente.
-    	 *
-    	 * @see #DELETE_CLIENTE the request primitive
-    	 */
-    	String DELETE_CLIENTE_RESPONSE = "deleteClienteResponse";
-    	/**
-    	 * An error response primitive for deleteCliente.
-    	 *
-    	 * @see #DELETE_CLIENTE the request primitive
-    	 */
-    	String DELETE_CLIENTE_ERROR = "deleteClienteError";
-    	/**
-    	 * The 'create' request primitive for the Item entity.
-    	 * @see Item the request payload
-    	 */
-    	String CREATE_ITEM = "createItem";
-    	/**
-    	 * The success response primitive for createItem.
-    	 *
-    	 * @see #CREATE_ITEM the request primitive
-    	 */
-    	String CREATE_ITEM_RESPONSE = "createItemResponse";
-    	/**
-    	 * An error response primitive for createItem.
-    	 *
-    	 * @see #CREATE_ITEM the request primitive
-    	 */
-    	String CREATE_ITEM_ERROR = "createItemError";
-    	/**
-    	 * The 'createBulk' request primitive for the Item entity.
-    	 * @see CreateBulkItemInput the request payload
-    	 */
-    	String CREATE_BULK_ITEM = "createBulkItem";
-    	/**
-    	 * The success response primitive for createBulkItem.
-    	 *
-    	 * @see #CREATE_BULK_ITEM the request primitive
-    	 * @see CreateBulkItemOutput the response payload
-    	 */
-    	String CREATE_BULK_ITEM_RESPONSE = "createBulkItemResponse";
-    	/**
-    	 * An error response primitive for createBulkItem.
-    	 *
-    	 * @see #CREATE_BULK_ITEM the request primitive
-    	 */
-    	String CREATE_BULK_ITEM_ERROR = "createBulkItemError";
-    	/**
-    	 * The 'createMerge' request primitive for the Item entity.
-    	 * @see Item the request payload
-    	 */
-    	String CREATE_MERGE_ITEM = "createMergeItem";
-    	/**
-    	 * The success response primitive for createMergeItem.
-    	 *
-    	 * @see #CREATE_MERGE_ITEM the request primitive
-    	 */
-    	String CREATE_MERGE_ITEM_RESPONSE = "createMergeItemResponse";
-    	/**
-    	 * An error response primitive for createMergeItem.
-    	 *
-    	 * @see #CREATE_MERGE_ITEM the request primitive
-    	 */
-    	String CREATE_MERGE_ITEM_ERROR = "createMergeItemError";
-    	/**
-    	 * The 'retrieve' request primitive for the Item entity.
-    	 * @see Item.Id the request payload
-    	 */
-    	String RETRIEVE_ITEM = "retrieveItem";
-    	/**
-    	 * The success response primitive for retrieveItem.
-    	 *
-    	 * @see #RETRIEVE_ITEM the request primitive
-    	 */
-    	String RETRIEVE_ITEM_RESPONSE = "retrieveItemResponse";
-    	/**
-    	 * An error response primitive for retrieveItem.
-    	 *
-    	 * @see #RETRIEVE_ITEM the request primitive
-    	 */
-    	String RETRIEVE_ITEM_ERROR = "retrieveItemError";
-    	/**
-    	 * The 'update' request primitive for the Item entity.
-    	 * @see Item the request payload
-    	 */
-    	String UPDATE_ITEM = "updateItem";
-    	/**
-    	 * The success response primitive for updateItem.
-    	 *
-    	 * @see #UPDATE_ITEM the request primitive
-    	 */
-    	String UPDATE_ITEM_RESPONSE = "updateItemResponse";
-    	/**
-    	 * An error response primitive for updateItem.
-    	 *
-    	 * @see #UPDATE_ITEM the request primitive
-    	 */
-    	String UPDATE_ITEM_ERROR = "updateItemError";
-    	/**
-    	 * The 'updateMerge' request primitive for the Item entity.
-    	 * @see Item the request payload
-    	 */
-    	String UPDATE_MERGE_ITEM = "updateMergeItem";
-    	/**
-    	 * The success response primitive for updateMergeItem.
-    	 *
-    	 * @see #UPDATE_MERGE_ITEM the request primitive
-    	 */
-    	String UPDATE_MERGE_ITEM_RESPONSE = "updateMergeItemResponse";
-    	/**
-    	 * An error response primitive for updateMergeItem.
-    	 *
-    	 * @see #UPDATE_MERGE_ITEM the request primitive
-    	 */
-    	String UPDATE_MERGE_ITEM_ERROR = "updateMergeItemError";
-    	/**
-    	 * The 'delete' request primitive for the Item entity.
-    	 * @see Item.Id the request payload
-    	 */
-    	String DELETE_ITEM = "deleteItem";
-    	/**
-    	 * The success response primitive for deleteItem.
-    	 *
-    	 * @see #DELETE_ITEM the request primitive
-    	 */
-    	String DELETE_ITEM_RESPONSE = "deleteItemResponse";
-    	/**
-    	 * An error response primitive for deleteItem.
-    	 *
-    	 * @see #DELETE_ITEM the request primitive
-    	 */
-    	String DELETE_ITEM_ERROR = "deleteItemError";
-    	/**
-    	 * The 'create' request primitive for the Pedido entity.
-    	 * @see Pedido the request payload
-    	 */
-    	String CREATE_PEDIDO = "createPedido";
-    	/**
-    	 * The success response primitive for createPedido.
-    	 *
-    	 * @see #CREATE_PEDIDO the request primitive
-    	 */
-    	String CREATE_PEDIDO_RESPONSE = "createPedidoResponse";
-    	/**
-    	 * An error response primitive for createPedido.
-    	 *
-    	 * @see #CREATE_PEDIDO the request primitive
-    	 */
-    	String CREATE_PEDIDO_ERROR = "createPedidoError";
-    	/**
-    	 * The 'createBulk' request primitive for the Pedido entity.
-    	 * @see CreateBulkPedidoInput the request payload
-    	 */
-    	String CREATE_BULK_PEDIDO = "createBulkPedido";
-    	/**
-    	 * The success response primitive for createBulkPedido.
-    	 *
-    	 * @see #CREATE_BULK_PEDIDO the request primitive
-    	 * @see CreateBulkPedidoOutput the response payload
-    	 */
-    	String CREATE_BULK_PEDIDO_RESPONSE = "createBulkPedidoResponse";
-    	/**
-    	 * An error response primitive for createBulkPedido.
-    	 *
-    	 * @see #CREATE_BULK_PEDIDO the request primitive
-    	 */
-    	String CREATE_BULK_PEDIDO_ERROR = "createBulkPedidoError";
-    	/**
-    	 * The 'createMerge' request primitive for the Pedido entity.
-    	 * @see Pedido the request payload
-    	 */
-    	String CREATE_MERGE_PEDIDO = "createMergePedido";
-    	/**
-    	 * The success response primitive for createMergePedido.
-    	 *
-    	 * @see #CREATE_MERGE_PEDIDO the request primitive
-    	 */
-    	String CREATE_MERGE_PEDIDO_RESPONSE = "createMergePedidoResponse";
-    	/**
-    	 * An error response primitive for createMergePedido.
-    	 *
-    	 * @see #CREATE_MERGE_PEDIDO the request primitive
-    	 */
-    	String CREATE_MERGE_PEDIDO_ERROR = "createMergePedidoError";
-    	/**
-    	 * The 'retrieve' request primitive for the Pedido entity.
-    	 * @see Pedido.Id the request payload
-    	 */
-    	String RETRIEVE_PEDIDO = "retrievePedido";
-    	/**
-    	 * The success response primitive for retrievePedido.
-    	 *
-    	 * @see #RETRIEVE_PEDIDO the request primitive
-    	 */
-    	String RETRIEVE_PEDIDO_RESPONSE = "retrievePedidoResponse";
-    	/**
-    	 * An error response primitive for retrievePedido.
-    	 *
-    	 * @see #RETRIEVE_PEDIDO the request primitive
-    	 */
-    	String RETRIEVE_PEDIDO_ERROR = "retrievePedidoError";
-    	/**
-    	 * The 'update' request primitive for the Pedido entity.
-    	 * @see Pedido the request payload
-    	 */
-    	String UPDATE_PEDIDO = "updatePedido";
-    	/**
-    	 * The success response primitive for updatePedido.
-    	 *
-    	 * @see #UPDATE_PEDIDO the request primitive
-    	 */
-    	String UPDATE_PEDIDO_RESPONSE = "updatePedidoResponse";
-    	/**
-    	 * An error response primitive for updatePedido.
-    	 *
-    	 * @see #UPDATE_PEDIDO the request primitive
-    	 */
-    	String UPDATE_PEDIDO_ERROR = "updatePedidoError";
-    	/**
-    	 * The 'updateMerge' request primitive for the Pedido entity.
-    	 * @see Pedido the request payload
-    	 */
-    	String UPDATE_MERGE_PEDIDO = "updateMergePedido";
-    	/**
-    	 * The success response primitive for updateMergePedido.
-    	 *
-    	 * @see #UPDATE_MERGE_PEDIDO the request primitive
-    	 */
-    	String UPDATE_MERGE_PEDIDO_RESPONSE = "updateMergePedidoResponse";
-    	/**
-    	 * An error response primitive for updateMergePedido.
-    	 *
-    	 * @see #UPDATE_MERGE_PEDIDO the request primitive
-    	 */
-    	String UPDATE_MERGE_PEDIDO_ERROR = "updateMergePedidoError";
-    	/**
-    	 * The 'delete' request primitive for the Pedido entity.
-    	 * @see Pedido.Id the request payload
-    	 */
-    	String DELETE_PEDIDO = "deletePedido";
-    	/**
-    	 * The success response primitive for deletePedido.
-    	 *
-    	 * @see #DELETE_PEDIDO the request primitive
-    	 */
-    	String DELETE_PEDIDO_RESPONSE = "deletePedidoResponse";
-    	/**
-    	 * An error response primitive for deletePedido.
-    	 *
-    	 * @see #DELETE_PEDIDO the request primitive
-    	 */
-    	String DELETE_PEDIDO_ERROR = "deletePedidoError";
     	/**
     	 * The 'create' request primitive for the Tipo entity.
     	 * @see Tipo the request payload
@@ -1347,12 +810,6 @@ public interface BasicoConstants {
     	 * Default 'notifyUser' event.
     	 */
     	String NOTIFY_USER_EVENT = "notifyUserEvent";
-    	String IMPORT_CLIENTE_EVENT = "importClienteEvent";
-    	String EXPORT_CLIENTE_EVENT = "exportClienteEvent";
-    	String IMPORT_ITEM_EVENT = "importItemEvent";
-    	String EXPORT_ITEM_EVENT = "exportItemEvent";
-    	String IMPORT_PEDIDO_EVENT = "importPedidoEvent";
-    	String EXPORT_PEDIDO_EVENT = "exportPedidoEvent";
     	String IMPORT_TIPO_EVENT = "importTipoEvent";
     	String EXPORT_TIPO_EVENT = "exportTipoEvent";
     	String IMPORT_EVENTO_EVENT = "importEventoEvent";

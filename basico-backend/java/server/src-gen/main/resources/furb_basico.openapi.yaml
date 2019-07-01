@@ -62,54 +62,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
-  /rest/furb/basico/queries/exportItem:
-    post:
-      description: ""
-      tags:
-        - Queries
-      x-senior-visibility: PUBLIC
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - config
-              properties:
-                config:
-                  type: object
-                  allOf:
-                    - $ref: '#/components/schemas/exportConfig'
-                  description: ""
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - exportJobId
-                properties:
-                  exportJobId:
-                    type: string
-                    description: ""
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
   /rest/furb/basico/queries/getMetadata:
     post:
       description: "Default 'getMetadata' query. Every service must handle this command and return metadata in the format requested."
@@ -191,7 +143,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
-  /rest/furb/basico/queries/helloWorld:
+  /rest/furb/basico/queries/getSalas:
     post:
       description: ""
       tags:
@@ -206,9 +158,9 @@ paths:
             schema:
               type: object
               required:
-                - who
+                - idEvento
               properties:
-                who:
+                idEvento:
                   type: string
                   description: ""
       parameters:
@@ -224,11 +176,13 @@ paths:
             application/json:
               schema:
                 type: object
-                required:
-                  - helloWorldMessage
                 properties:
-                  helloWorldMessage:
-                    type: string
+                  salas:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                        - $ref: '#/components/schemas/sala'
                     description: ""
         default:
           description: Error response
@@ -245,7 +199,7 @@ paths:
         - bearerAuth: []
       parameters:
         - in : query
-          name : who
+          name : idEvento
           description: ""
           required: true
           schema:
@@ -262,11 +216,13 @@ paths:
             application/json:
               schema:
                 type: object
-                required:
-                  - helloWorldMessage
                 properties:
-                  helloWorldMessage:
-                    type: string
+                  salas:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                        - $ref: '#/components/schemas/sala'
                     description: ""
         default:
           description: Error response
@@ -275,12 +231,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
-  /rest/furb/basico/queries/exportCliente:
+  /rest/furb/basico/queries/getSetores:
     post:
       description: ""
       tags:
         - Queries
-      x-senior-visibility: PUBLIC
+      x-senior-visibility: PRIVATE
       security :
         - bearerAuth: []
       requestBody:
@@ -290,12 +246,10 @@ paths:
             schema:
               type: object
               required:
-                - config
+                - idEvento
               properties:
-                config:
-                  type: object
-                  allOf:
-                    - $ref: '#/components/schemas/exportConfig'
+                idEvento:
+                  type: string
                   description: ""
       parameters:
         - in: header
@@ -310,11 +264,53 @@ paths:
             application/json:
               schema:
                 type: object
-                required:
-                  - exportJobId
                 properties:
-                  exportJobId:
-                    type: string
+                  setores:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                        - $ref: '#/components/schemas/setor'
+                    description: ""
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/genericError'
+    get:
+      description: ""
+      tags:
+        - Queries
+      x-senior-visibility: PRIVATE
+      security :
+        - bearerAuth: []
+      parameters:
+        - in : query
+          name : idEvento
+          description: ""
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
+          schema:
+            type: string
+      responses:
+        200:
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  setores:
+                    type: array
+                    items:
+                      type: object
+                      allOf:
+                        - $ref: '#/components/schemas/setor'
                     description: ""
         default:
           description: Error response
@@ -434,146 +430,6 @@ paths:
                         - $ref: '#/components/schemas/dependency'
                       minimum: 1
                     description: "List with this service dependencies"
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/furb/basico/queries/exportPedido:
-    post:
-      description: ""
-      tags:
-        - Queries
-      x-senior-visibility: PUBLIC
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - config
-              properties:
-                config:
-                  type: object
-                  allOf:
-                    - $ref: '#/components/schemas/exportConfig'
-                  description: ""
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - exportJobId
-                properties:
-                  exportJobId:
-                    type: string
-                    description: ""
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/furb/basico/queries/retornaEstoque:
-    post:
-      description: "Obtém a quantidade de itens no estoque de acordo com um pedido"
-      tags:
-        - Queries
-      x-senior-visibility: PRIVATE
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - idPedido
-              properties:
-                idPedido:
-                  type: string
-                  description: "ID do pedido"
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - qtd
-                properties:
-                  qtd:
-                    type: integer
-                    format: int64
-                    description: "Quantidade encontrada"
-                  message:
-                    type: string
-                    description: "Mensagem de negócio"
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      description: "Obtém a quantidade de itens no estoque de acordo com um pedido"
-      tags:
-        - Queries
-      x-senior-visibility: PRIVATE
-      security :
-        - bearerAuth: []
-      parameters:
-        - in : query
-          name : idPedido
-          description: "ID do pedido"
-          required: true
-          schema:
-            type: string
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - qtd
-                properties:
-                  qtd:
-                    type: integer
-                    format: int64
-                    description: "Quantidade encontrada"
-                  message:
-                    type: string
-                    description: "Mensagem de negócio"
         default:
           description: Error response
           content:
@@ -772,12 +628,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
-  /rest/furb/basico/actions/importPedido:
+  /rest/furb/basico/actions/getQtdTipo:
     post:
       description: ""
       tags:
         - Actions
-      x-senior-visibility: PUBLIC
+      x-senior-visibility: PRIVATE
       security :
         - bearerAuth: []
       requestBody:
@@ -787,12 +643,12 @@ paths:
             schema:
               type: object
               required:
-                - config
+                - tipo
               properties:
-                config:
+                tipo:
                   type: object
                   allOf:
-                    - $ref: '#/components/schemas/importConfig'
+                    - $ref: '#/components/schemas/tipo'
                   description: ""
       parameters:
         - in: header
@@ -808,161 +664,12 @@ paths:
               schema:
                 type: object
                 required:
-                  - importJobId
+                  - qtd
                 properties:
-                  importJobId:
-                    type: string
+                  qtd:
+                    type: integer
+                    format: int64
                     description: ""
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/furb/basico/actions/obterUrlUploadFoto:
-    post:
-      description: "Obtém a URL para upload da foto"
-      tags:
-        - Actions
-      x-senior-visibility: PRIVATE
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: "Id da foto, opcional, caso não tenha gera um e retorna"
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - id
-                  - version
-                  - url
-                properties:
-                  id:
-                    type: string
-                    description: "identificador da foto"
-                  version:
-                    type: string
-                    description: "versão do arquivo para commit"
-                  url:
-                    type: string
-                    description: "url para upload da foto"
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/furb/basico/actions/gravarFoto:
-    post:
-      description: "Grava a foto que foi upada"
-      tags:
-        - Actions
-      x-senior-visibility: PRIVATE
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - id
-                - version
-              properties:
-                id:
-                  type: string
-                  description: "identificador da foto"
-                version:
-                  type: string
-                  description: "versão que será gravada, obtida no obterUrlFoto"
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - result
-                properties:
-                  result:
-                    type: string
-                    allOf:
-                    - $ref: '#/components/schemas/fotoOperationResult'
-                    description: "resultado da operação"
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/furb/basico/actions/obterUrlDownloadFoto:
-    post:
-      description: "Obtém a URL para download da foto"
-      tags:
-        - Actions
-      x-senior-visibility: PRIVATE
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  type: string
-                  description: "Id da foto"
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - url
-                properties:
-                  url:
-                    type: string
-                    description: "url para download da foto"
         default:
           description: Error response
           content:
@@ -1018,12 +725,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/genericError'
   
-  /rest/furb/basico/actions/importCliente:
+  /rest/furb/basico/actions/getDateEvento:
     post:
       description: ""
       tags:
         - Actions
-      x-senior-visibility: PUBLIC
+      x-senior-visibility: PRIVATE
       security :
         - bearerAuth: []
       requestBody:
@@ -1033,12 +740,10 @@ paths:
             schema:
               type: object
               required:
-                - config
+                - idEvento
               properties:
-                config:
-                  type: object
-                  allOf:
-                    - $ref: '#/components/schemas/importConfig'
+                idEvento:
+                  type: string
                   description: ""
       parameters:
         - in: header
@@ -1054,58 +759,11 @@ paths:
               schema:
                 type: object
                 required:
-                  - importJobId
+                  - data
                 properties:
-                  importJobId:
+                  data:
                     type: string
-                    description: ""
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /rest/furb/basico/actions/importItem:
-    post:
-      description: ""
-      tags:
-        - Actions
-      x-senior-visibility: PUBLIC
-      security :
-        - bearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - config
-              properties:
-                config:
-                  type: object
-                  allOf:
-                    - $ref: '#/components/schemas/importConfig'
-                  description: ""
-      parameters:
-        - in: header
-          name: Accept
-          description: 'Content types and endpoint version for the request. Example: application/json;seniorx.version=2'
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - importJobId
-                properties:
-                  importJobId:
-                    type: string
+                    format: date
                     description: ""
         default:
           description: Error response
@@ -1161,609 +819,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/genericError'
-  /basico/entities/cliente:
-    post:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      requestBody:
-        required: true
-        content:
-          applicaton/json:
-            schema:
-              type: object
-              allOf:
-                - $ref: '#/components/schemas/cliente'
-      responses:
-        200:
-          description: 'The created resource'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/cliente'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    patch:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              allOf:
-                - $ref: '#/components/schemas/cliente'
-      responses:
-        200:
-          description: 'The created resource'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/cliente'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: offset
-          in: query
-          schema:
-            type: number
-        - name: size
-          in: query
-          schema:
-            type: number
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/cliente'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/cliente/{id}:
-    put:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/cliente'
-      responses:
-        200:
-          description: Ok
-          content:
-            applicaton/json:
-              schema:
-                $ref: '#/components/schemas/cliente'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    patch:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/cliente'
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/cliente'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/cliente'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    delete:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/cliente/bulk:
-    post:
-      tags:
-        - Bulk
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                 $ref: '#/components/schemas/cliente'
-      responses:
-        200:
-          description: 'The bulk creation has created resources'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/item:
-    post:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      requestBody:
-        required: true
-        content:
-          applicaton/json:
-            schema:
-              type: object
-              allOf:
-                - $ref: '#/components/schemas/item'
-      responses:
-        200:
-          description: 'The created resource'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    patch:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              allOf:
-                - $ref: '#/components/schemas/item'
-      responses:
-        200:
-          description: 'The created resource'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: offset
-          in: query
-          schema:
-            type: number
-        - name: size
-          in: query
-          schema:
-            type: number
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/item/{id}:
-    put:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/item'
-      responses:
-        200:
-          description: Ok
-          content:
-            applicaton/json:
-              schema:
-                $ref: '#/components/schemas/item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    patch:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/item'
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    delete:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/item/bulk:
-    post:
-      tags:
-        - Bulk
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                 $ref: '#/components/schemas/item'
-      responses:
-        200:
-          description: 'The bulk creation has created resources'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/pedido:
-    post:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      requestBody:
-        required: true
-        content:
-          applicaton/json:
-            schema:
-              type: object
-              allOf:
-                - $ref: '#/components/schemas/pedido'
-      responses:
-        200:
-          description: 'The created resource'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/pedido'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    patch:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              allOf:
-                - $ref: '#/components/schemas/pedido'
-      responses:
-        200:
-          description: 'The created resource'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/pedido'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: offset
-          in: query
-          schema:
-            type: number
-        - name: size
-          in: query
-          schema:
-            type: number
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/pedido'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/pedido/{id}:
-    put:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/pedido'
-      responses:
-        200:
-          description: Ok
-          content:
-            applicaton/json:
-              schema:
-                $ref: '#/components/schemas/pedido'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    patch:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/pedido'
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/pedido'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    get:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/pedido'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-    delete:
-      tags:
-        - CRUD
-      x-senior-visibility: PRIVATE
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        200:
-          description: Ok
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
-  /basico/entities/pedido/bulk:
-    post:
-      tags:
-        - Bulk
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                 $ref: '#/components/schemas/pedido'
-      responses:
-        200:
-          description: 'The bulk creation has created resources'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/genericError'
-  
   /basico/entities/tipo:
     post:
       tags:
@@ -2576,14 +1631,6 @@ components:
       type: apiKey
       in: header
   schemas:
-    fotoOperationResult:
-      description: "Enumeração que define o resultado da gravação da foto"
-      type: string
-      enum:
-        - SUCCESS
-        - ERROR
-      
-    
     userNotificationKind:
       description: "User notification kind."
       type: string
@@ -2685,93 +1732,6 @@ components:
         - CONVERT_ERROR
         - SERVICE_ERROR
       
-    cliente:
-      description: "Entidade que representa o cliente"
-      type: object
-      required:
-        - nome
-        - dataNascimento
-        - cpf
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: "Chave primaria"
-        nome:
-          type: string
-          description: "Nome do cliente"
-        dataNascimento:
-          type: string
-          format: date
-          description: "Data de nascimento"
-        creditoHabilitado:
-          type: boolean
-          description: "Tem credito habilitado"
-          default: false
-        cpf:
-          type: string
-          description: "CPF do cliente"
-        idFoto:
-          type: string
-          description: "id da foto"
-    
-    item:
-      description: "Item do pedido"
-      type: object
-      required:
-        - descricao
-        - quantidade
-        - valorUnitario
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: "Chave primária"
-        descricao:
-          type: string
-          description: "descrição"
-        quantidade:
-          type: number
-          format: double
-          description: "quantidade"
-        valorUnitario:
-          type: number
-          format: double
-          description: "valor unitário"
-    
-    pedido:
-      description: "Pedido"
-      type: object
-      required:
-        - data
-        - cliente
-        - itens
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: "Chave primaria"
-        data:
-          type: string
-          format: date
-          description: "Data do pedido"
-        obsservacoes:
-          type: string
-          description: "Observações do pedido"
-        cliente:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/cliente'
-          description: "Cliente do pedido"
-        itens:
-          type: array
-          items:
-            type: object
-            allOf:
-              - $ref: '#/components/schemas/item'
-            minimum: 1
-          description: "Itens do pedido"
-    
     tipo:
       description: ""
       type: object

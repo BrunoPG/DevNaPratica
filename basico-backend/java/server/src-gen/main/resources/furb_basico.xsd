@@ -10,60 +10,6 @@
     <xsd:attribute name="i18n" type="xsd:boolean" default="false"/>
     
     <!-- Public types -->
-    <xsd:simpleType name="fotoOperationResult">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="SUCCESS"/>
-            <xsd:enumeration value="ERROR"/>
-        </xsd:restriction>
-     </xsd:simpleType>
-    <xsd:complexType name="cliente">
-        <xsd:sequence>
-            <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="dataNascimento" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="creditoHabilitado" type="xsd:boolean" minOccurs="0" maxOccurs="1" default="false" readOnly="false">
-            </xsd:element>
-            <xsd:element name="cpf" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="idFoto" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-        </xsd:sequence>
-    </xsd:complexType>
-    <xsd:complexType name="item">
-        <xsd:sequence>
-            <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="descricao" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="quantidade" type="xsd:double" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="valorUnitario" type="xsd:double" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-        </xsd:sequence>
-    </xsd:complexType>
-    <xsd:complexType name="pedido">
-        <xsd:sequence>
-            <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="data" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="obsservacoes" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <xsd:element name="cliente" type="cliente" minOccurs="1" maxOccurs="1"  readOnly="false">
-            </xsd:element>
-            <!-- collection wrapper for itens -->
-            <xsd:element name="itens" minOccurs="1" maxOccurs="1">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="item" type="item" minOccurs="1" maxOccurs="unbounded"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-        </xsd:sequence>
-    </xsd:complexType>
     <xsd:complexType name="tipo">
         <xsd:sequence>
             <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
@@ -465,421 +411,6 @@
     <!-- Message payload elements for signals -->
     
     <!-- Message input/output elements for commands -->
-    <xsd:element name="updateMergePedido">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="exportSetor">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="exportSetorOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="updateMergeSala">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="retrieveEvento">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="updateMergeCliente">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="importEvento">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="importEventoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createEvento">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="retrieveSetor">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createMergeCliente">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="updatePedido">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="exportItem">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="exportItemOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="updateMergeTipo">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="updateEvento">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="listCliente">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <!-- collection wrapper for displayFields -->
-                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listClienteOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for contents -->
-                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="cliente" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createMergeEvento">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="listSetor">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <!-- collection wrapper for displayFields -->
-                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listSetorOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for contents -->
-                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="setor" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createMergeSetor">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="deleteSala">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="getMetadata">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="metadataFormat" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="getMetadataOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="metadata" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createMergePedido">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="importSala">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="importSalaOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listEvento">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <!-- collection wrapper for displayFields -->
-                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listEventoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for contents -->
-                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="evento" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="deleteSetor">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="updateItem">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="createBulkSala">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for entities -->
-                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="sala" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createBulkSalaOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="importPedido">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="importPedidoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listSala">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <!-- collection wrapper for displayFields -->
-                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listSalaOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for contents -->
-                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="sala" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createItem">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="createBulkEvento">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for entities -->
-                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="evento" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createBulkEventoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="retrieveItem">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createBulkPedido">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for entities -->
-                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="pedido" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createBulkPedidoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="obterUrlUploadFoto">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="obterUrlUploadFotoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="version" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="url" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="helloWorld">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="who" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="helloWorldOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="helloWorldMessage" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
     <xsd:element name="updateTipo">
         <xsd:complexType/>
     </xsd:element>
@@ -903,14 +434,6 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="retrieveCliente">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
     <xsd:element name="createSala">
         <xsd:complexType/>
     </xsd:element>
@@ -922,7 +445,7 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="exportCliente">
+    <xsd:element name="exportSetor">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -930,7 +453,7 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="exportClienteOutput">
+    <xsd:element name="exportSetorOutput">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -938,7 +461,40 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="getSalas">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="idEvento" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getSalasOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for salas -->
+                <xsd:element name="salas" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="sala" minOccurs="0" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="updateMergeSala">
+        <xsd:complexType/>
+    </xsd:element>
     <xsd:element name="retrieveSala">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="retrieveEvento">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -990,38 +546,18 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="listPedido">
+    <xsd:element name="importEvento">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <!-- collection wrapper for displayFields -->
-                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
+                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="listPedidoOutput">
+    <xsd:element name="importEventoOutput">
         <xsd:complexType>
             <xsd:sequence>
-                <!-- collection wrapper for contents -->
-                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="pedido" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
+                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
@@ -1032,43 +568,13 @@
     <xsd:element name="createSetor">
         <xsd:complexType/>
     </xsd:element>
-    <xsd:element name="updateCliente">
+    <xsd:element name="createEvento">
         <xsd:complexType/>
     </xsd:element>
-    <xsd:element name="createBulkCliente">
+    <xsd:element name="retrieveSetor">
         <xsd:complexType>
             <xsd:sequence>
-                <!-- collection wrapper for entities -->
-                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="item" type="cliente" minOccurs="1" maxOccurs="unbounded"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createBulkClienteOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="gravarFoto">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="version" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="gravarFotoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="result" type="fotoOperationResult" minOccurs="1" maxOccurs="1"  readOnly="false">
+                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
@@ -1077,22 +583,6 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="obterUrlDownloadFoto">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="obterUrlDownloadFotoOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="url" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
@@ -1116,79 +606,47 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element name="updateMergeTipo">
+        <xsd:complexType/>
+    </xsd:element>
     <xsd:element name="createMergeTipo">
         <xsd:complexType/>
     </xsd:element>
-    <xsd:element name="importCliente">
+    <xsd:element name="getSetores">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                <xsd:element name="idEvento" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="importClienteOutput">
+    <xsd:element name="getSetoresOutput">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="deleteCliente">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createMergeSala">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="createBulkItem">
-        <xsd:complexType>
-            <xsd:sequence>
-                <!-- collection wrapper for entities -->
-                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                <!-- collection wrapper for setores -->
+                <xsd:element name="setores" minOccurs="0" maxOccurs="1">
                     <xsd:complexType>
                         <xsd:sequence>
-                            <xsd:element name="item" type="item" minOccurs="1" maxOccurs="unbounded"/>
+                            <xsd:element name="item" type="setor" minOccurs="0" maxOccurs="unbounded"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="createBulkItemOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-            </xsd:sequence>
-        </xsd:complexType>
+    <xsd:element name="updateEvento">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="createMergeSala">
+        <xsd:complexType/>
     </xsd:element>
     <xsd:element name="updateMergeEvento">
         <xsd:complexType/>
     </xsd:element>
-    <xsd:element name="updateSetor">
+    <xsd:element name="createMergeEvento">
         <xsd:complexType/>
     </xsd:element>
-    <xsd:element name="exportSala">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="exportSalaOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="listItem">
+    <xsd:element name="listSetor">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -1210,16 +668,78 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="listItemOutput">
+    <xsd:element name="listSetorOutput">
         <xsd:complexType>
             <xsd:sequence>
                 <!-- collection wrapper for contents -->
                 <xsd:element name="contents" minOccurs="1" maxOccurs="1">
                     <xsd:complexType>
                         <xsd:sequence>
-                            <xsd:element name="item" type="item" minOccurs="1" maxOccurs="unbounded"/>
+                            <xsd:element name="item" type="setor" minOccurs="1" maxOccurs="unbounded"/>
                         </xsd:sequence>
                     </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="updateSetor">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="createMergeSetor">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="exportSala">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="exportSalaOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="deleteSala">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getMetadata">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="metadataFormat" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getMetadataOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="metadata" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="importSala">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="importSalaOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
@@ -1241,7 +761,43 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="deletePedido">
+    <xsd:element name="listEvento">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <!-- collection wrapper for displayFields -->
+                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="listEventoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for contents -->
+                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="evento" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="deleteSetor">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
@@ -1249,75 +805,41 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="exportPedido">
+    <xsd:element name="createBulkSala">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="config" type="exportConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
+                <!-- collection wrapper for entities -->
+                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="sala" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="exportPedidoOutput">
+    <xsd:element name="createBulkSalaOutput">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="exportJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getDateEvento">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="idEvento" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="retrievePedido">
+    <xsd:element name="getDateEventoOutput">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                <xsd:element name="data" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createCliente">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="retornaEstoque">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="idPedido" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="retornaEstoqueOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="qtd" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-                <xsd:element name="message" type="xsd:string" minOccurs="0" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="createMergeItem">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="createPedido">
-        <xsd:complexType/>
-    </xsd:element>
-    <xsd:element name="importItem">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="config" type="importConfig" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="importItemOutput">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="importJobId" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:element name="updateMergeItem">
-        <xsd:complexType/>
     </xsd:element>
     <xsd:element name="exportEvento">
         <xsd:complexType>
@@ -1335,10 +857,38 @@
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
-    <xsd:element name="deleteItem">
+    <xsd:element name="listSala">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="id" type="xsd:uuid" minOccurs="1" maxOccurs="1"  readOnly="false">
+                <xsd:element name="offset" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="size" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="orderBy" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <xsd:element name="filter" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+                <!-- collection wrapper for displayFields -->
+                <xsd:element name="displayFields" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="listSalaOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for contents -->
+                <xsd:element name="contents" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="sala" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
@@ -1365,6 +915,42 @@
     </xsd:element>
     <xsd:element name="updateSala">
         <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="getQtdTipo">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="tipo" type="tipo" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="getQtdTipoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="qtd" type="xsd:long" minOccurs="1" maxOccurs="1"  readOnly="false">
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="createBulkEvento">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- collection wrapper for entities -->
+                <xsd:element name="entities" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="item" type="evento" minOccurs="1" maxOccurs="unbounded"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="createBulkEventoOutput">
+        <xsd:complexType>
+            <xsd:sequence>
+            </xsd:sequence>
+        </xsd:complexType>
     </xsd:element>
     <xsd:element name="importSetor">
         <xsd:complexType>

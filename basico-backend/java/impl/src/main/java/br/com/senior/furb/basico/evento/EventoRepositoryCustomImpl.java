@@ -1,9 +1,10 @@
 package br.com.senior.furb.basico.evento;
 
-import java.sql.Date;
+
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,13 +30,41 @@ public class EventoRepositoryCustomImpl extends RepositoryBaseJpa implements Eve
 	@Autowired
 	EventoDTOConverter eventoConverter;
 	
-	@Override
-	public List<EventoEntity> getAll() {
-		// TODO Auto-generated method stub
+	/**	@Override
+	public Date getDateEvento(String id) {
+		UUID uuidToFind = UUID.fromString(id);
 		QEventoEntity eventos = QEventoEntity.eventoEntity;
-		JPAQuery<EventoEntity> query = select(eventos).from(eventos);
-		return query.fetch();
+		JPAQuery<EventoEntity> query = select(eventos).from(eventos).where(eventos.id.eq(uuidToFind));
+		return Date.from(query.fetch().get(0).getData().);
 	}
+	//@Override
+	//public List<EventoEntity> getAll() {
+		// TODO Auto-generated method stub
+	//	QEventoEntity eventos = QEventoEntity.eventoEntity;
+	//	JPAQuery<EventoEntity> query = select(eventos).from(eventos);
+	//	return query.fetch();
+	//}
+	@Override
+	public int getQtdTipo(br.com.senior.furb.basico.evento.Tipo tipo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public List<SalaEntity> getSalas(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<SetorEntity> getSetores(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public int getQtdTipo(Tipo tipo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 /*
 	@Override
 	public EventoEntity getEvento(String id) {

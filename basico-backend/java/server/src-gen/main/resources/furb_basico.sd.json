@@ -4,12 +4,54 @@
     "name": "basico",
     "version": "${version}",
     "commands" : {
-        "updateMergePedido": {
+        "updateTipo": {
             "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Pedido entity.",
-            "input" : "pedido",
-            "output" : "pedido",
+            "kind": "update",
+            "documentation": "The 'update' request primitive for the Tipo entity.",
+            "input" : "tipo",
+            "output" : "tipo",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createBulkTipo": {
+            "endpointType" : "command",
+            "kind": "createBulk",
+            "documentation": "The 'createBulk' request primitive for the Tipo entity.",
+            "input" : {
+                "entities" : {
+                    "type": "tipo",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createSala": {
+            "endpointType" : "command",
+            "kind": "create",
+            "documentation": "The 'create' request primitive for the Sala entity.",
+            "input" : "sala",
+            "output" : "sala",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "deleteEvento": {
+            "endpointType" : "command",
+            "kind": "delete",
+            "documentation": "The 'delete' request primitive for the Evento entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -36,11 +78,51 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
+        "getSalas": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "idEvento" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "salas" : {
+                    "type": "sala",
+                    "optional": true,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
         "updateMergeSala": {
             "endpointType" : "command",
             "kind": "updateMerge",
             "documentation": "The 'updateMerge' request primitive for the Sala entity.",
             "input" : "sala",
+            "output" : "sala",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "retrieveSala": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "documentation": "The 'retrieve' request primitive for the Sala entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
             "output" : "sala",
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
@@ -62,126 +144,10 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "updateMergeCliente": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Cliente entity.",
-            "input" : "cliente",
-            "output" : "cliente",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importEvento": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createEvento": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Evento entity.",
-            "input" : "evento",
-            "output" : "evento",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveSetor": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Setor entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "setor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createMergeCliente": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Cliente entity.",
-            "input" : "cliente",
-            "output" : "cliente",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updatePedido": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Pedido entity.",
-            "input" : "pedido",
-            "output" : "pedido",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportItem": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateMergeTipo": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Tipo entity.",
-            "input" : "tipo",
-            "output" : "tipo",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateEvento": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Evento entity.",
-            "input" : "evento",
-            "output" : "evento",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "listCliente": {
+        "listTipo": {
             "endpointType" : "command",
             "kind": "list",
-            "documentation": "The 'list' request primitive for the Cliente entity.",
+            "documentation": "The 'list' request primitive for the Tipo entity.",
             "input" : {
                 "offset" : {
                     "type": "integer",
@@ -216,12 +182,210 @@
             },
             "output" : {
                 "contents" : {
-                    "type": "cliente",
+                    "type": "tipo",
                     "optional": false,
                     "multivalued": true,
                     "readOnly": false
                 }
             },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "retrieveTipo": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "documentation": "The 'retrieve' request primitive for the Tipo entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "output" : "tipo",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "importEvento": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "config" : {
+                    "type": "importConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "importJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createTipo": {
+            "endpointType" : "command",
+            "kind": "create",
+            "documentation": "The 'create' request primitive for the Tipo entity.",
+            "input" : "tipo",
+            "output" : "tipo",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createSetor": {
+            "endpointType" : "command",
+            "kind": "create",
+            "documentation": "The 'create' request primitive for the Setor entity.",
+            "input" : "setor",
+            "output" : "setor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createEvento": {
+            "endpointType" : "command",
+            "kind": "create",
+            "documentation": "The 'create' request primitive for the Evento entity.",
+            "input" : "evento",
+            "output" : "evento",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "retrieveSetor": {
+            "endpointType" : "command",
+            "kind": "retrieve",
+            "documentation": "The 'retrieve' request primitive for the Setor entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "output" : "setor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "deleteTipo": {
+            "endpointType" : "command",
+            "kind": "delete",
+            "documentation": "The 'delete' request primitive for the Tipo entity.",
+            "input" : {
+                "id" : {
+                    "type": "string",
+                    "format": "uuid",
+                    "optional": false,
+                    "multivalued": false,
+                	"readOnly": true
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "updateMergeSetor": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "documentation": "The 'updateMerge' request primitive for the Setor entity.",
+            "input" : "setor",
+            "output" : "setor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "importTipo": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "config" : {
+                    "type": "importConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "importJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "updateMergeTipo": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "documentation": "The 'updateMerge' request primitive for the Tipo entity.",
+            "input" : "tipo",
+            "output" : "tipo",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createMergeTipo": {
+            "endpointType" : "command",
+            "kind": "createMerge",
+            "documentation": "The 'createMerge' request primitive for the Tipo entity.",
+            "input" : "tipo",
+            "output" : "tipo",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "getSetores": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "idEvento" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "setores" : {
+                    "type": "setor",
+                    "optional": true,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "updateEvento": {
+            "endpointType" : "command",
+            "kind": "update",
+            "documentation": "The 'update' request primitive for the Evento entity.",
+            "input" : "evento",
+            "output" : "evento",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "createMergeSala": {
+            "endpointType" : "command",
+            "kind": "createMerge",
+            "documentation": "The 'createMerge' request primitive for the Sala entity.",
+            "input" : "sala",
+            "output" : "sala",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "updateMergeEvento": {
+            "endpointType" : "command",
+            "kind": "updateMerge",
+            "documentation": "The 'updateMerge' request primitive for the Evento entity.",
+            "input" : "evento",
+            "output" : "evento",
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -281,12 +445,44 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
+        "updateSetor": {
+            "endpointType" : "command",
+            "kind": "update",
+            "documentation": "The 'update' request primitive for the Setor entity.",
+            "input" : "setor",
+            "output" : "setor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
         "createMergeSetor": {
             "endpointType" : "command",
             "kind": "createMerge",
             "documentation": "The 'createMerge' request primitive for the Setor entity.",
             "input" : "setor",
             "output" : "setor",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "exportSala": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "config" : {
+                    "type": "exportConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "exportJobId" : {
+                    "type": "string",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -330,15 +526,6 @@
             "extensionPoint" : false,
             "visibility" : "PRIVATE"
         },
-        "createMergePedido": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Pedido entity.",
-            "input" : "pedido",
-            "output" : "pedido",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "importSala": {
             "endpointType" : "command",
             "kind": "action",
@@ -355,6 +542,22 @@
                     "type": "string",
                     "optional": false,
                     "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "getDependencies": {
+            "endpointType" : "command",
+            "kind": "query",
+            "documentation": "Returns a list with all dependencies from this service, along with their respective versions",
+            "idempotent": true,
+            "output" : {
+                "dependencies" : {
+                    "type": "dependency",
+                    "optional": false,
+                    "multivalued": true,
                     "readOnly": false
                 }
             },
@@ -424,15 +627,6 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "updateItem": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Item entity.",
-            "input" : "item",
-            "output" : "item",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "createBulkSala": {
             "endpointType" : "command",
             "kind": "createBulk",
@@ -450,19 +644,42 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "importPedido": {
+        "getDateEvento": {
             "endpointType" : "command",
             "kind": "action",
             "input" : {
-                "config" : {
-                    "type": "importConfig",
+                "idEvento" : {
+                    "type": "string",
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false
                 }
             },
             "output" : {
-                "importJobId" : {
+                "data" : {
+                    "type": "date",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "exportEvento": {
+            "endpointType" : "command",
+            "kind": "query",
+            "idempotent": true,
+            "input" : {
+                "config" : {
+                    "type": "exportConfig",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "exportJobId" : {
                     "type": "string",
                     "optional": false,
                     "multivalued": false,
@@ -519,846 +736,6 @@
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
-        "createItem": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Item entity.",
-            "input" : "item",
-            "output" : "item",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createBulkEvento": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Evento entity.",
-            "input" : {
-                "entities" : {
-                    "type": "evento",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveItem": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Item entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "item",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createBulkPedido": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Pedido entity.",
-            "input" : {
-                "entities" : {
-                    "type": "pedido",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "obterUrlUploadFoto": {
-            "endpointType" : "command",
-            "kind": "action",
-            "documentation": "Obt\u00E9m a URL para upload da foto",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "id" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "version" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "url" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "helloWorld": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "who" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "helloWorldMessage" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "updateTipo": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Tipo entity.",
-            "input" : "tipo",
-            "output" : "tipo",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createBulkTipo": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Tipo entity.",
-            "input" : {
-                "entities" : {
-                    "type": "tipo",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveCliente": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Cliente entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "cliente",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createSala": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Sala entity.",
-            "input" : "sala",
-            "output" : "sala",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "deleteEvento": {
-            "endpointType" : "command",
-            "kind": "delete",
-            "documentation": "The 'delete' request primitive for the Evento entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportCliente": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveSala": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Sala entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "sala",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "listTipo": {
-            "endpointType" : "command",
-            "kind": "list",
-            "documentation": "The 'list' request primitive for the Tipo entity.",
-            "input" : {
-                "offset" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "size" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "orderBy" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "filter" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "displayFields" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "contents" : {
-                    "type": "tipo",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrieveTipo": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Tipo entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "tipo",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "listPedido": {
-            "endpointType" : "command",
-            "kind": "list",
-            "documentation": "The 'list' request primitive for the Pedido entity.",
-            "input" : {
-                "offset" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "size" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "orderBy" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "filter" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "displayFields" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "contents" : {
-                    "type": "pedido",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createTipo": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Tipo entity.",
-            "input" : "tipo",
-            "output" : "tipo",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createSetor": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Setor entity.",
-            "input" : "setor",
-            "output" : "setor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateCliente": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Cliente entity.",
-            "input" : "cliente",
-            "output" : "cliente",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createBulkCliente": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Cliente entity.",
-            "input" : {
-                "entities" : {
-                    "type": "cliente",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "gravarFoto": {
-            "endpointType" : "command",
-            "kind": "action",
-            "documentation": "Grava a foto que foi upada",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "version" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "result" : {
-                    "type": "fotoOperationResult",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "deleteTipo": {
-            "endpointType" : "command",
-            "kind": "delete",
-            "documentation": "The 'delete' request primitive for the Tipo entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "obterUrlDownloadFoto": {
-            "endpointType" : "command",
-            "kind": "action",
-            "documentation": "Obt\u00E9m a URL para download da foto",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "url" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "updateMergeSetor": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Setor entity.",
-            "input" : "setor",
-            "output" : "setor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importTipo": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createMergeTipo": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Tipo entity.",
-            "input" : "tipo",
-            "output" : "tipo",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importCliente": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "deleteCliente": {
-            "endpointType" : "command",
-            "kind": "delete",
-            "documentation": "The 'delete' request primitive for the Cliente entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createMergeSala": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Sala entity.",
-            "input" : "sala",
-            "output" : "sala",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createBulkItem": {
-            "endpointType" : "command",
-            "kind": "createBulk",
-            "documentation": "The 'createBulk' request primitive for the Item entity.",
-            "input" : {
-                "entities" : {
-                    "type": "item",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateMergeEvento": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Evento entity.",
-            "input" : "evento",
-            "output" : "evento",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateSetor": {
-            "endpointType" : "command",
-            "kind": "update",
-            "documentation": "The 'update' request primitive for the Setor entity.",
-            "input" : "setor",
-            "output" : "setor",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportSala": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "listItem": {
-            "endpointType" : "command",
-            "kind": "list",
-            "documentation": "The 'list' request primitive for the Item entity.",
-            "input" : {
-                "offset" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "size" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "orderBy" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "filter" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "displayFields" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "contents" : {
-                    "type": "item",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "getDependencies": {
-            "endpointType" : "command",
-            "kind": "query",
-            "documentation": "Returns a list with all dependencies from this service, along with their respective versions",
-            "idempotent": true,
-            "output" : {
-                "dependencies" : {
-                    "type": "dependency",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "deletePedido": {
-            "endpointType" : "command",
-            "kind": "delete",
-            "documentation": "The 'delete' request primitive for the Pedido entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportPedido": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retrievePedido": {
-            "endpointType" : "command",
-            "kind": "retrieve",
-            "documentation": "The 'retrieve' request primitive for the Pedido entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "output" : "pedido",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createCliente": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Cliente entity.",
-            "input" : "cliente",
-            "output" : "cliente",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "retornaEstoque": {
-            "endpointType" : "command",
-            "kind": "query",
-            "documentation": "Obt\u00E9m a quantidade de itens no estoque de acordo com um pedido",
-            "idempotent": true,
-            "input" : {
-                "idPedido" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "qtd" : {
-                    "type": "integer",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "message" : {
-                    "type": "string",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PRIVATE"
-        },
-        "createMergeItem": {
-            "endpointType" : "command",
-            "kind": "createMerge",
-            "documentation": "The 'createMerge' request primitive for the Item entity.",
-            "input" : "item",
-            "output" : "item",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "createPedido": {
-            "endpointType" : "command",
-            "kind": "create",
-            "documentation": "The 'create' request primitive for the Pedido entity.",
-            "input" : "pedido",
-            "output" : "pedido",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importItem": {
-            "endpointType" : "command",
-            "kind": "action",
-            "input" : {
-                "config" : {
-                    "type": "importConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "importJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "updateMergeItem": {
-            "endpointType" : "command",
-            "kind": "updateMerge",
-            "documentation": "The 'updateMerge' request primitive for the Item entity.",
-            "input" : "item",
-            "output" : "item",
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportEvento": {
-            "endpointType" : "command",
-            "kind": "query",
-            "idempotent": true,
-            "input" : {
-                "config" : {
-                    "type": "exportConfig",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "output" : {
-                "exportJobId" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "deleteItem": {
-            "endpointType" : "command",
-            "kind": "delete",
-            "documentation": "The 'delete' request primitive for the Item entity.",
-            "input" : {
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": false,
-                    "multivalued": false,
-                	"readOnly": true
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
         "createBulkSetor": {
             "endpointType" : "command",
             "kind": "createBulk",
@@ -1382,6 +759,45 @@
             "documentation": "The 'update' request primitive for the Sala entity.",
             "input" : "sala",
             "output" : "sala",
+            "extensionPoint" : false,
+            "visibility" : "PUBLIC"
+        },
+        "getQtdTipo": {
+            "endpointType" : "command",
+            "kind": "action",
+            "input" : {
+                "tipo" : {
+                    "type": "tipo",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+                "qtd" : {
+                    "type": "integer",
+                    "optional": false,
+                    "multivalued": false,
+                    "readOnly": false
+                }
+            },
+            "extensionPoint" : false,
+            "visibility" : "PRIVATE"
+        },
+        "createBulkEvento": {
+            "endpointType" : "command",
+            "kind": "createBulk",
+            "documentation": "The 'createBulk' request primitive for the Evento entity.",
+            "input" : {
+                "entities" : {
+                    "type": "evento",
+                    "optional": false,
+                    "multivalued": true,
+                    "readOnly": false
+                }
+            },
+            "output" : {
+            },
             "extensionPoint" : false,
             "visibility" : "PUBLIC"
         },
@@ -1460,84 +876,6 @@
             "payload" : "notifyUserEventPayload",
             "extensionPoint" : false,
             "visibility" : "PRIVATE"
-        },
-        "importClienteEvent": {
-            "endpointType" : "event",
-            "payload" : {
-                "eventpl" : {
-                    "type": "importEventStatus",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportClienteEvent": {
-            "endpointType" : "event",
-            "payload" : {
-                "eventpl" : {
-                    "type": "exportEventStatus",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importItemEvent": {
-            "endpointType" : "event",
-            "payload" : {
-                "eventpl" : {
-                    "type": "importEventStatus",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportItemEvent": {
-            "endpointType" : "event",
-            "payload" : {
-                "eventpl" : {
-                    "type": "exportEventStatus",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "importPedidoEvent": {
-            "endpointType" : "event",
-            "payload" : {
-                "eventpl" : {
-                    "type": "importEventStatus",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
-        },
-        "exportPedidoEvent": {
-            "endpointType" : "event",
-            "payload" : {
-                "eventpl" : {
-                    "type": "exportEventStatus",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            },
-            "extensionPoint" : false,
-            "visibility" : "PUBLIC"
         },
         "importTipoEvent": {
             "endpointType" : "event",
@@ -1645,107 +983,6 @@
         }
     },
     "records": {
-        "cliente" : {
-            "id" : {
-                "type": "string",
-                "format": "uuid",
-                "optional": true,
-                "multivalued": false,
-            	"readOnly": true
-            },
-            "nome" : {
-                "type": "string",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "dataNascimento" : {
-                "type": "date",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "creditoHabilitado" : {
-                "type": "boolean",
-                "optional": true,
-                "multivalued": false,
-                "readOnly": false
-            ,
-            	"default": false
-            },
-            "cpf" : {
-                "type": "string",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "idFoto" : {
-                "type": "string",
-                "optional": true,
-                "multivalued": false,
-                "readOnly": false
-            }
-        },
-        "item" : {
-            "id" : {
-                "type": "string",
-                "format": "uuid",
-                "optional": true,
-                "multivalued": false,
-            	"readOnly": true
-            },
-            "descricao" : {
-                "type": "string",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "quantidade" : {
-                "type": "double",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "valorUnitario" : {
-                "type": "double",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            }
-        },
-        "pedido" : {
-            "id" : {
-                "type": "string",
-                "format": "uuid",
-                "optional": true,
-                "multivalued": false,
-            	"readOnly": true
-            },
-            "data" : {
-                "type": "date",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "obsservacoes" : {
-                "type": "string",
-                "optional": true,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "cliente" : {
-                "type": "cliente",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "itens" : {
-                "type": "item",
-                "optional": false,
-                "multivalued": true,
-                "readOnly": false
-            }
-        },
         "tipo" : {
             "id" : {
                 "type": "string",
@@ -2462,10 +1699,6 @@
         }
     },
     "enumerations": {
-        "fotoOperationResult" : [ 
-            "SUCCESS",
-            "ERROR"
-        ],
         "userNotificationKind" : [ 
             "Operational",
             "Management",
@@ -2530,119 +1763,6 @@
         ]
     },
     "entities" : {
-        "cliente" : {
-            "id": "id",
-            "customizable": false,
-            "slots": { 
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": true,
-                    "multivalued": false,
-                	"readOnly": true
-                },
-                "nome" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "dataNascimento" : {
-                    "type": "date",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "creditoHabilitado" : {
-                    "type": "boolean",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                ,
-                	"default": false
-                },
-                "cpf" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "idFoto" : {
-                    "type": "string",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            }    
-        },
-        "item" : {
-            "id": "id",
-            "customizable": false,
-            "slots": { 
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": true,
-                    "multivalued": false,
-                	"readOnly": true
-                },
-                "descricao" : {
-                    "type": "string",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "quantidade" : {
-                    "type": "double",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "valorUnitario" : {
-                    "type": "double",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                }
-            }    
-        },
-        "pedido" : {
-            "id": "id",
-            "customizable": false,
-            "slots": { 
-                "id" : {
-                    "type": "string",
-                    "format": "uuid",
-                    "optional": true,
-                    "multivalued": false,
-                	"readOnly": true
-                },
-                "data" : {
-                    "type": "date",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "obsservacoes" : {
-                    "type": "string",
-                    "optional": true,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "cliente" : {
-                    "type": "cliente",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "itens" : {
-                    "type": "item",
-                    "optional": false,
-                    "multivalued": true,
-                    "readOnly": false
-                }
-            }    
-        },
         "tipo" : {
             "id": "id",
             "customizable": false,
