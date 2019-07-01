@@ -355,8 +355,7 @@
         </record>
         <record name="evento">
             <slot name="id" type="string" format="uuid" optional="true" multivalued="false"/>
-            <slot name="data" type="date" optional="false" multivalued="false"/>
-            <slot name="hora" type="time" optional="false" multivalued="false"/>
+            <slot name="nome" type="string" optional="false" multivalued="false"/>
             <slot name="descricao" type="string" optional="false" multivalued="false"/>
             <slot name="tipo" type="tipo" optional="false" multivalued="false"/>
             <slot name="salas" type="sala" optional="true" multivalued="true"/>

@@ -36,11 +36,8 @@ public class EventoEntity {
 	@Column(name = "id", updatable = false)
 	private java.util.UUID id;
 	
-	@Column(name = "data")
-	private java.time.LocalDate data;
-	
-	@Column(name = "hora")
-	private java.time.LocalTime hora;
+	@Column(name = "nome")
+	private String nome;
 	
 	@Column(name = "descricao")
 	private String descricao;
@@ -56,12 +53,8 @@ public class EventoEntity {
 		return id;
 	}
 	
-	public java.time.LocalDate getData() {
-		return data;
-	}
-	
-	public java.time.LocalTime getHora() {
-		return hora;
+	public String getNome() {
+		return nome;
 	}
 	
 	public String getDescricao() {
@@ -80,12 +73,8 @@ public class EventoEntity {
 		this.id = id;
 	}
 	
-	public void setData(java.time.LocalDate data) {
-		this.data = data;
-	}
-	
-	public void setHora(java.time.LocalTime hora) {
-		this.hora = hora;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	public void setDescricao(String descricao) {
@@ -164,8 +153,7 @@ public class EventoEntity {
 		}
 		appended.add(this);
 		sb.append("id=").append(id == null ? "null" : id).append(", ");
-		sb.append("data=").append(data == null ? "null" : data).append(", ");
-		sb.append("hora=").append(hora == null ? "null" : hora).append(", ");
+		sb.append("nome=").append(nome == null ? "null" : nome).append(", ");
 		sb.append("descricao=").append(descricao == null ? "null" : descricao).append(", ");
 		sb.append("tipo=<");
 		if (tipo == null) {

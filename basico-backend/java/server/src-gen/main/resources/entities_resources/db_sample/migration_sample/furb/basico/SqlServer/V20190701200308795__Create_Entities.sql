@@ -1,7 +1,7 @@
-/* Database: PostgreSql. Generation date: 2019-07-01 18:39:31:303 */
+/* Database: SqlServer. Generation date: 2019-07-01 20:03:08:795 */
 /* Entity Tipo */
 create table tipo (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
 	descricao VARCHAR(255) NOT NULL
 );
@@ -10,18 +10,17 @@ create table tipo (
 
 /* Entity Evento */
 create table evento (
-	id UUID NOT NULL,
-	data DATE NOT NULL,
-	hora TIME NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
+	nome VARCHAR(255) NOT NULL,
 	descricao VARCHAR(255) NOT NULL,
-	tipo UUID NOT NULL
+	tipo UNIQUEIDENTIFIER NOT NULL
 );
 
 
 
 /* Entity Sala */
 create table sala (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
 	descricao VARCHAR(255) NOT NULL
 );
@@ -30,10 +29,10 @@ create table sala (
 
 /* Entity Setor */
 create table setor (
-	id UUID NOT NULL,
+	id UNIQUEIDENTIFIER NOT NULL,
 	nome VARCHAR(255) NOT NULL,
 	descricao VARCHAR(255) NOT NULL,
-	sala UUID NOT NULL
+	sala UNIQUEIDENTIFIER NOT NULL
 );
 
 
@@ -41,14 +40,14 @@ create table setor (
 /* Join Tables */
 /* master: Sala as sala, detail: Setor as setor */
 create table sala_setores (
-	sala_id UUID NOT NULL,
-	setores_id UUID NOT NULL
+	sala_id UNIQUEIDENTIFIER NOT NULL,
+	setores_id UNIQUEIDENTIFIER NOT NULL
 );
 
 /* master: Sala as sala, detail: Evento as evento */
 create table sala_evento (
-	sala_id UUID NOT NULL,
-	evento_id UUID NOT NULL
+	sala_id UNIQUEIDENTIFIER NOT NULL,
+	evento_id UNIQUEIDENTIFIER NOT NULL
 );
 
 /* Primary Key Constraints */
@@ -60,12 +59,12 @@ alter table sala add constraint pk_sala_id primary key(id);
 alter table setor add constraint pk_setor_id primary key(id);
 
 /* Foreign Key Constraints */
-alter table evento add constraint fkp3adednli3uupxpffejrocxligqu foreign key (tipo) references tipo (id);
-alter table sala_setores add constraint fkngjurk4l5yol8qvjzhnw7qepsa2g foreign key (sala_id) references sala (id);
-alter table sala_setores add constraint fk5aswvohqfq13kjtcarml0vapkqzd foreign key (setores_id) references setor (id);
-alter table sala_evento add constraint fkk0s5rv0ynm5grfsa35nvan3gqnhr foreign key (sala_id) references sala (id);
-alter table sala_evento add constraint fkdz40sqvikbqhb6wd2ojobf8j58m1 foreign key (evento_id) references evento (id);
-alter table setor add constraint fktbrjpqbxfzecyrhnz8h07fw09hzz foreign key (sala) references sala (id);
+alter table evento add constraint fkjdl2epsqpvzegy5b1shqwuwhrsze foreign key (tipo) references tipo (id);
+alter table sala_setores add constraint fkkqsw86vzf0ykoe5fyogpn435fxub foreign key (sala_id) references sala (id);
+alter table sala_setores add constraint fkhglozgvjvn1rqyhc7cz258dc3by9 foreign key (setores_id) references setor (id);
+alter table sala_evento add constraint fkgb1obn0ldodutclhkq2wmojvackd foreign key (sala_id) references sala (id);
+alter table sala_evento add constraint fkcbx6jdkenxclogyeb6irajopv2mw foreign key (evento_id) references evento (id);
+alter table setor add constraint fk3rrtvsrflgmgnxfrrmsuaxm3jbol foreign key (sala) references sala (id);
 
 /* Unique Key Constraints */
 

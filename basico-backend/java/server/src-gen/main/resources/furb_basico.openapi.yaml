@@ -1754,8 +1754,7 @@ components:
       description: ""
       type: object
       required:
-        - data
-        - hora
+        - nome
         - descricao
         - tipo
       properties:
@@ -1763,11 +1762,7 @@ components:
           type: string
           format: uuid
           description: ""
-        data:
-          type: string
-          format: date
-          description: ""
-        hora:
+        nome:
           type: string
           description: ""
         descricao:

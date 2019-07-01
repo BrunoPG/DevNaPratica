@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tipo } from '../config';
 
 @Component({
   selector: 'app-tipo',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipoPage implements OnInit {
 
-  constructor() { }
+  tipo: tipo
+  constructor() {
+    this.tipo = new  tipo()
+   }
 
   ngOnInit() {
   }

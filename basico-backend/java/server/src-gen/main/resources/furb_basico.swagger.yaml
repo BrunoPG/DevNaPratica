@@ -1422,8 +1422,7 @@ definitions:
     description: ""
     type: object
     required:
-      - data
-      - hora
+      - nome
       - descricao
       - tipo
     properties:
@@ -1431,11 +1430,7 @@ definitions:
         type: string
         format: uuid
         description: ""
-      data:
-        type: string
-        format: date
-        description: ""
-      hora:
+      nome:
         type: string
         description: ""
       descricao:

@@ -5,5 +5,13 @@
 </ion-header>
 
 <ion-content>
-
-</ion-content>
+    <ion-item>
+      <ion-label position="fixed">Nome:</ion-label>
+      <ion-input [(ngModel)]="sala.nome" #nome="ngModel" name="nome" value="{{sala.nome}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Descrição:</ion-label>
+      <ion-input [(ngModel)]="sala.descricao" #descricao="ngModel" name="descricao" value="{{sala.descricao}}">
+      </ion-input>
+    </ion-item>  
+  </ion-content>

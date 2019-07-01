@@ -44,8 +44,7 @@ service basico {
         }
         fixed entity evento {
             id : uuid?
-            data : date
-            hora : time
+            nome: string
             descricao : string
             tipo : tipo
             salas : sala?*

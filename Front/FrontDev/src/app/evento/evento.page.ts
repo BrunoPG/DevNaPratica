@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { evento } from '../config';
 
 @Component({
   selector: 'app-evento',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evento.page.scss'],
 })
 export class EventoPage implements OnInit {
-
-  constructor() { }
+evento:evento
+  constructor() { 
+    this.evento = new evento
+  }
 
   ngOnInit() {
   }

@@ -27,13 +27,8 @@
             		"type": "string",
             		"format": "uuid"
             	},
-            	"data" : {
-            		"type": "string",
-            		"format": "date"
-            	},
-            	"hora" : {
-            		"type": "string",
-            		"format": "time",
+            	"nome" : {
+            		"type": "string"
             	},
             	"descricao" : {
             		"type": "string"
@@ -48,7 +43,7 @@
             		}
             	}
         	},
-        	"required" : ["data","hora","descricao","tipo"]
+        	"required" : ["nome","descricao","tipo"]
         }
         ,
         "sala" : {

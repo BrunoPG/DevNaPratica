@@ -94,8 +94,7 @@ public class Evento {
 
     @EntityId
     public String id;
-    public java.time.LocalDate data;
-    public java.time.LocalTime hora;
+    public String nome;
     public String descricao;
     public Tipo tipo;
     public java.util.List<Sala> salas;
@@ -106,10 +105,9 @@ public class Evento {
     /** 
      * This constructor allows initialization of all fields, required and optional.
      */
-    public Evento(String id, java.time.LocalDate data, java.time.LocalTime hora, String descricao, Tipo tipo, java.util.List<Sala> salas) {
+    public Evento(String id, String nome, String descricao, Tipo tipo, java.util.List<Sala> salas) {
         this.id = id;
-        this.data = data;
-        this.hora = hora;
+        this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
         this.salas = salas;
@@ -117,9 +115,8 @@ public class Evento {
     /** 
      * This convenience constructor allows initialization of all required fields.
      */
-    public Evento(java.time.LocalDate data, java.time.LocalTime hora, String descricao, Tipo tipo) {
-        this.data = data;
-        this.hora = hora;
+    public Evento(String nome, String descricao, Tipo tipo) {
+        this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
     }
@@ -185,8 +182,7 @@ public class Evento {
     	}
     	appended.add(this);
     	sb.append("id=").append(id == null ? "null" : id).append(", ");
-    	sb.append("data=").append(data == null ? "null" : data).append(", ");
-    	sb.append("hora=").append(hora == null ? "null" : hora).append(", ");
+    	sb.append("nome=").append(nome == null ? "null" : nome).append(", ");
     	sb.append("descricao=").append(descricao == null ? "null" : descricao).append(", ");
     	sb.append("tipo=<");
     	if (tipo == null) {

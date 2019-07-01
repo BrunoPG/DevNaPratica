@@ -1,4 +1,4 @@
-<!-- GENERATED ENTITIES: 2019-07-01 18:39:26:800 -->
+<!-- GENERATED ENTITIES: 2019-07-01 20:03:06:669 -->
 <class>br.com.senior.furb.basico.TipoEntity</class>
 <class>br.com.senior.furb.basico.EventoEntity</class>
 <class>br.com.senior.furb.basico.SalaEntity</class>

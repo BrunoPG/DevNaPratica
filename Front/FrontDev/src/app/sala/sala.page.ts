@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { sala } from '../config';
 
 @Component({
   selector: 'app-sala',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sala.page.scss'],
 })
 export class SalaPage implements OnInit {
-
-  constructor() { }
+sala:sala
+  constructor() {
+    this.sala = new sala
+   }
 
   ngOnInit() {
   }

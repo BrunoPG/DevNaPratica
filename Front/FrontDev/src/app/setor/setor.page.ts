@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { setor } from '../config';
 
 @Component({
   selector: 'app-setor',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./setor.page.scss'],
 })
 export class SetorPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  setor: setor
+  constructor() { 
+this.setor = new setor
+}
+ngOnInit() {
   }
 
 }

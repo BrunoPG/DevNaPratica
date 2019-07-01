@@ -102,17 +102,9 @@
 					"multivalued": false,
 					"readOnly": true
 				},
-				"data": {
-					"name": "data",
-					"type": "date",
-					"optional": false,
-					"hidden": false,
-					"multivalued": false,
-					"readOnly": false
-				},
-				"hora": {
-					"name": "hora",
-					"type": "time",
+				"nome": {
+					"name": "nome",
+					"type": "string",
 					"optional": false,
 					"hidden": false,
 					"multivalued": false,
@@ -151,12 +143,7 @@
 						"multiple": false
 					},
 					{
-						"name": "data",
-						"optional": true,
-						"multiple": false
-					},
-					{
-						"name": "hora",
+						"name": "nome",
 						"optional": true,
 						"multiple": false
 					},
@@ -168,8 +155,7 @@
 				],
 				"displayFields": [
 					"id",
-					"data",
-					"hora",
+					"nome",
 					"descricao"
 				]
 			},
@@ -181,12 +167,7 @@
 						"multiple": false
 					},
 					{
-						"name": "data",
-						"optional": true,
-						"multiple": false
-					},
-					{
-						"name": "hora",
+						"name": "nome",
 						"optional": true,
 						"multiple": false
 					},
@@ -198,8 +179,7 @@
 				],
 				"displayFields": [
 					"id",
-					"data",
-					"hora",
+					"nome",
 					"descricao"
 				]
 			},
@@ -496,12 +476,7 @@
 									"multiple": false
 								},
 								{
-									"name": "data",
-									"optional": true,
-									"multiple": false
-								},
-								{
-									"name": "hora",
+									"name": "nome",
 									"optional": true,
 									"multiple": false
 								},
@@ -513,8 +488,7 @@
 							],
 							"displayFields": [
 								"id",
-								"data",
-								"hora",
+								"nome",
 								"descricao"
 							]
 						},
@@ -526,12 +500,7 @@
 									"multiple": false
 								},
 								{
-									"name": "data",
-									"optional": true,
-									"multiple": false
-								},
-								{
-									"name": "hora",
+									"name": "nome",
 									"optional": true,
 									"multiple": false
 								},
@@ -543,8 +512,7 @@
 							],
 							"displayFields": [
 								"id",
-								"data",
-								"hora",
+								"nome",
 								"descricao"
 							]
 						}
@@ -709,8 +677,7 @@
 		"furb.basico.tipo_descricao": "",
 		"furb.basico.evento": "",
 		"furb.basico.evento_id": "",
-		"furb.basico.evento_data": "",
-		"furb.basico.evento_hora": "",
+		"furb.basico.evento_nome": "",
 		"furb.basico.evento_descricao": "",
 		"furb.basico.evento_tipo": "",
 		"furb.basico.evento_salas": "",

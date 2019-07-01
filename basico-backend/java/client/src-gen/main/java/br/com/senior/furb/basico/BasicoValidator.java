@@ -386,13 +386,8 @@ public class BasicoValidator {
     		}
     	}
     	if (required) {
-    		if (toValidate.data == null) {
-    			throw new IllegalArgumentException("data is required");
-    		}
-    	}
-    	if (required) {
-    		if (toValidate.hora == null) {
-    			throw new IllegalArgumentException("hora is required");
+    		if (toValidate.nome == null) {
+    			throw new IllegalArgumentException("nome is required");
     		}
     	}
     	if (required) {

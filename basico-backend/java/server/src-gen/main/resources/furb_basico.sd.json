@@ -1012,14 +1012,8 @@
                 "multivalued": false,
             	"readOnly": true
             },
-            "data" : {
-                "type": "date",
-                "optional": false,
-                "multivalued": false,
-                "readOnly": false
-            },
-            "hora" : {
-                "type": "time",
+            "nome" : {
+                "type": "string",
                 "optional": false,
                 "multivalued": false,
                 "readOnly": false
@@ -1799,14 +1793,8 @@
                     "multivalued": false,
                 	"readOnly": true
                 },
-                "data" : {
-                    "type": "date",
-                    "optional": false,
-                    "multivalued": false,
-                    "readOnly": false
-                },
-                "hora" : {
-                    "type": "time",
+                "nome" : {
+                    "type": "string",
                     "optional": false,
                     "multivalued": false,
                     "readOnly": false

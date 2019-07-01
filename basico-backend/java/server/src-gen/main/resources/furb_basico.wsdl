@@ -36,9 +36,7 @@
                 <xsd:sequence>
                     <xsd:element name="id" type="xsd:uuid" minOccurs="0" maxOccurs="1"  readOnly="false">
                     </xsd:element>
-                    <xsd:element name="data" type="xsd:date" minOccurs="1" maxOccurs="1"  readOnly="false">
-                    </xsd:element>
-                    <xsd:element name="hora" type="xsd:time" minOccurs="1" maxOccurs="1"  readOnly="false">
+                    <xsd:element name="nome" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                     </xsd:element>
                     <xsd:element name="descricao" type="xsd:string" minOccurs="1" maxOccurs="1"  readOnly="false">
                     </xsd:element>
