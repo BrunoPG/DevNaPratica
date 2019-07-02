@@ -86,4 +86,14 @@ export class ProviderService {
       })
     })
   }
+  GetAll(lista): Promise<any> {
+    return new Promise(resolve => {
+      this.Http.get(`${this.rota_service}${lista}`, { headers: this.headers }).subscribe((retorno: any) => {
+        console.log(retorno)
+        resolve(retorno.contents)
+      }, erro => {
+        reject(erro.message)
+      })
+    })
+  }
 }
