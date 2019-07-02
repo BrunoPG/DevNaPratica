@@ -30,6 +30,7 @@ export class TipoPage implements OnInit {
   }
 
   save() {
+    console.log(tipo);
     this.provider.PostTipo(this.tipo).then(() => {
       alert("Salvo com sucesso!")
       this.navCtrl.navigateForward("home")

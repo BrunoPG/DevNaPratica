@@ -16,8 +16,20 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
+      title: 'Tipo',
+      url: '/tipo/e',
+      icon: 'list'
+    },{
+      title: 'Evento',
+      url: '/evento/e',
+      icon: 'list'
+    },{
+      title: 'Sala',
+      url: '/sala/e',
+      icon: 'list'
+    },{
+      title: 'Setor',
+      url: '/setor/e',
       icon: 'list'
     }
   ];

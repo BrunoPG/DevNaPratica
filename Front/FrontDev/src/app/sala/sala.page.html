@@ -13,5 +13,7 @@
       <ion-label position="fixed">Descrição:</ion-label>
       <ion-input [(ngModel)]="sala.descricao" #descricao="ngModel" name="descricao" value="{{sala.descricao}}">
       </ion-input>
-    </ion-item>  
+    </ion-item> 
+    <ion-button (click)="save()" expand="block"> Salvar</ion-button>
+  <ion-button (click)="delete()" expand="block"> Apagar</ion-button> 
   </ion-content>
