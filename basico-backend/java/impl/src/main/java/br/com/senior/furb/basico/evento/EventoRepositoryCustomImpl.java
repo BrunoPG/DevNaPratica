@@ -17,6 +17,8 @@ import br.com.senior.furb.basico.Evento;
 import br.com.senior.furb.basico.EventoDTOConverter;
 import br.com.senior.furb.basico.EventoEntity;
 import br.com.senior.furb.basico.QEventoEntity;
+import br.com.senior.furb.basico.SalaEntity;
+import br.com.senior.furb.basico.SetorEntity;
 import br.com.senior.furb.basico.Tipo;
 import br.com.senior.furb.basico.TipoEntity;
 import br.com.senior.furb.basico.core.RepositoryBaseJpa;
@@ -30,12 +32,13 @@ public class EventoRepositoryCustomImpl extends RepositoryBaseJpa implements Eve
 	@Autowired
 	EventoDTOConverter eventoConverter;
 	
-	/**	@Override
+		@Override
 	public Date getDateEvento(String id) {
 		UUID uuidToFind = UUID.fromString(id);
 		QEventoEntity eventos = QEventoEntity.eventoEntity;
 		JPAQuery<EventoEntity> query = select(eventos).from(eventos).where(eventos.id.eq(uuidToFind));
-		return Date.from(query.fetch().get(0).getData().);
+		//return Date.from(query.fetch().get(0).getData().);
+		return null;
 	}
 	//@Override
 	//public List<EventoEntity> getAll() {
@@ -45,7 +48,7 @@ public class EventoRepositoryCustomImpl extends RepositoryBaseJpa implements Eve
 	//	return query.fetch();
 	//}
 	@Override
-	public int getQtdTipo(br.com.senior.furb.basico.evento.Tipo tipo) {
+	public int getQtdTipo(TipoEntity tipo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -58,11 +61,6 @@ public class EventoRepositoryCustomImpl extends RepositoryBaseJpa implements Eve
 	public List<SetorEntity> getSetores(String id) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	@Override
-	public int getQtdTipo(Tipo tipo) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 /*
@@ -82,7 +80,7 @@ public class EventoRepositoryCustomImpl extends RepositoryBaseJpa implements Eve
 		QEventoEntity eventos = QEventoEntity.eventoEntity;
 		eventoConverter.mergeToEntity(e, eventos);
 		return null;
-	}*/
-
+	}
+*/
 
 }

@@ -7,21 +7,18 @@
 <ion-content>
     <ion-item>
       <ion-label position="fixed">Nome:</ion-label>
-      <ion-input value="{{setor.nome}}"></ion-input>
+      <ion-input [(ngModel)]="setor.nome" #nome="ngModel" name="nome" value="{{setor.nome}}"></ion-input>
     </ion-item>
-    <!-- [(ngModel)]="setor.nome" #nome="ngModel" name="nome" -->
     <ion-item>
       <ion-label position="fixed">Descrição:</ion-label>
-      <ion-input value="{{setor.descricao}}">
+      <ion-input [(ngModel)]="setor.descricao" #descricao="ngModel" name="descricao" value="{{setor.descricao}}">
       </ion-input>
     </ion-item>
-    <!-- [(ngModel)]="setor.descricao" #descricao="ngModel" name="descricao" -->
     <ion-item>
         <ion-label position="fixed">Sala:</ion-label>
-        <ion-input value="{{setor.descricao}}">
+        <ion-input [(ngModel)]="setor.Sala" #descricao="ngModel" name="sala" value="{{setor.descricao}}">
         </ion-input>
       </ion-item>
-      <!-- [(ngModel)]="setor.Sala" #descricao="ngModel" name="sala" -->
       <ion-button (click)="save()" expand="block"> Salvar</ion-button>
       <ion-button (click)="delete()" expand="block"> Apagar</ion-button>
   </ion-content>

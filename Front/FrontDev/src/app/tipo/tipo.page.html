@@ -7,15 +7,12 @@
 <ion-content>
   <ion-item>
     <ion-label position="fixed">Nome:</ion-label>
-    <ion-input  value="{{tipo.nome}}"></ion-input>
+    <ion-input  [(ngModel)]="tipo.nome" #nome="ngModel" name="nome" value="{{tipo.nome}}"></ion-input>
   </ion-item>
-  <!-- [(ngModel)]="tipo.nome" #nome="ngModel" name="nome" -->
   <ion-item>
     <ion-label position="fixed">Descrição:</ion-label>
-    <ion-input  value="{{tipo.descricao}}">
+    <ion-input [(ngModel)]="tipo.descricao" #descricao="ngModel" name="descricao" value="{{tipo.descricao}}">
     </ion-input>
   </ion-item>
-  <!-- [(ngModel)]="tipo.descricao" #descricao="ngModel" name="descricao" -->
   <ion-button (click)="save()" expand="block"> Salvar</ion-button>
-  <ion-button (click)="delete()" expand="block"> Apagar</ion-button>
 </ion-content>

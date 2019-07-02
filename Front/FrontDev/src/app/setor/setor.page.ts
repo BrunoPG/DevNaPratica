@@ -28,6 +28,8 @@ export class SetorPage implements OnInit {
   }
 
   save() {
+    this.setor.nome = "nome"
+    this.setor.descricao = "descricao"
     this.provider.PostSetor(this.setor).then(() => {
       alert("Salvo com sucesso!")
       this.navCtrl.navigateForward("home")

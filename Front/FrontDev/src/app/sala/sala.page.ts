@@ -29,6 +29,8 @@ sala:sala
   }
 
   save() {
+    this.sala.nome = "nome"
+    this.sala.descricao = "descricao"
     this.provider.PostSala(this.sala).then(() => {
       alert("Salvo com sucesso!")
       this.navCtrl.navigateForward("home")

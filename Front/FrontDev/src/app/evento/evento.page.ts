@@ -29,6 +29,8 @@ export class EventoPage implements OnInit {
   }
 
   save() {
+    this.evento.nome = "nome"
+    this.evento.descricao = "descricao"
     this.provider.PostEvento(this.evento).then(() => {
       alert("Salvo com sucesso!")
       this.navCtrl.navigateForward("home")

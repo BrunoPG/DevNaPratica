@@ -28,14 +28,14 @@ set  individual
 	 */
 	//Long findQuantityById(String id);
 	 //java.util.List<EventoEntity> getAll();
-	/**
+	///**
 	 Date getDateEvento(String idEvento);
-	 int getQtdTipo(Tipo tipo);
+	 int getQtdTipo(TipoEntity tipo);
 	 java.util.List<SalaEntity> getSalas(String id);
 	 java.util.List<SetorEntity> getSetores(String id);
 	 //EventoEntity getEvento(String id);
-	  * 
-	  */
+	  
+	//  */
 	 
 	 //Void InsertEvento(Evento e);//String id,LocalDate data, Time hora, String descricao, Tipo tipo);
 
